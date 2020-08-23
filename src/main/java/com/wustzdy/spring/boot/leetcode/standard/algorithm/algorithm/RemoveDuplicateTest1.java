@@ -1,6 +1,7 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 
 //26. 删除排序数组中的重复项
+//https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/solution/shuang-zhi-zhen-shan-chu-zhong-fu-xiang-dai-you-hu/
 /*解题思路：
         解法： 双指针
         首先注意数组是有序的，那么重复的元素一定会相邻。

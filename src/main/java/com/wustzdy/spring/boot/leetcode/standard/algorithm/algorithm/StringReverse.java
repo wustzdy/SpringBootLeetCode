@@ -24,10 +24,7 @@ public class StringReverse {
          *
          * 输入: "Let's take LeetCode contest"
          * 输出: "s'teL ekat edoCteeL tsetnoc" 
-         *
-         * 来源：力扣（LeetCode）
-         * 链接：https://leetcode-cn.com/problems/reverse-words-in-a-string-iii
-         * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。**/
+         **/
         String reverseStr4 = ReverseString4(str);
         System.out.println("reverseStr4:" + reverseStr4);
 

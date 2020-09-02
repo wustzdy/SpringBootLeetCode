@@ -22,18 +22,19 @@ public class maxSubArray {
     }
 
     public static int maxSubArray(int[] arr) {
+        int max = arr[0];
         int sum = arr[0];
-        int n = arr[0];
         for (int i = 1; i < arr.length; i++) {
-            if (n > 0) {
-                n += arr[i];
+            if (sum > 0) {
+                sum += arr[i];
             } else {
-                n = arr[i];
+                sum = arr[i];
             }
-            if (sum < n) {
-                sum = n;
-            }
+            /*if (max < sum) {
+                max = sum;
+            }*/
+            max = Math.max(sum, max);
         }
-        return sum;
+        return max;
     }
 }

@@ -28,9 +28,10 @@ public class StringReverse {
         String reverseStr4 = ReverseString4(str);
         System.out.println("reverseStr4:" + reverseStr4);
 
-        String reverseStr5 = ReverseString5(str);
+        String reverseStr5 = ReverseString6(str);
         System.out.println("reverseStr5:" + reverseStr5);
     }
+
 
     private static String ReverseString5(String str) {
         str = "Let's take LeetCode contest";
@@ -75,5 +76,15 @@ public class StringReverse {
         StringBuilder stringBuilder = new StringBuilder(str);
         StringBuilder reverse = stringBuilder.reverse();
         return reverse.toString();
+    }
+
+    private static String ReverseString6(String str) {
+        String string = "Let's take LeetCode contest";
+        String[] splits = string.split(" ");
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < splits.length; i++) {
+            stringBuilder.append(new StringBuilder(splits[i]).reverse().toString() + " ");
+        }
+        return stringBuilder.toString();
     }
 }

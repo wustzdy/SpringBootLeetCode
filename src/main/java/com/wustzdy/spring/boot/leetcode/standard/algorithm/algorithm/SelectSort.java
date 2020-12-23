@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class SelectSort {
     public static void main(String[] args) {
         int[] arr = { 2, 3, 6, 777, 8 };
-        int[] result = selectSort(arr);
-        for (int i : result) {
-            System.out.print(i + " ");
-        }
-//        selectSort(arr, arr.length);
+//        int[] result = selectSort(arr);
+//        for (int i : result) {
+//            System.out.print(i + " ");
+//        }
+        selectSort(arr, arr.length);
     }
 
     private static int[] selectSort(int[] arr) {
@@ -29,10 +29,11 @@ public class SelectSort {
     }
 
     public static void selectSort(int[] arr, int n) {
+        // 2, 3, 6, 777, 8
         for (int i = 0; i < n - 1; i++) {
             int index = i;
             int j;
-            // 找出最小值得元素下标
+            // 找出最小值的元素下标
             for (j = i + 1; j < n; j++) {
                 if (arr[j] < arr[index]) {
                     index = j;

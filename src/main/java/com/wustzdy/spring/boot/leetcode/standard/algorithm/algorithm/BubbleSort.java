@@ -40,5 +40,7 @@ public class BubbleSort {
                 return;
         }
     }
-
 }
+//时间复杂度: O(N^2)
+//        空间复杂度: O(1)
+//        稳定性：稳定

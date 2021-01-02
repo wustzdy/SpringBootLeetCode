@@ -1,5 +1,8 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 移出元素
  * 给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。
@@ -13,7 +16,20 @@ public class removeElement {
         int[] arr = {3, 2, 2, 3};
         int var = 3;
         int num = removeElement(arr, var);
-        System.out.print("num： " + num);
+        System.out.println("num： " + num);
+
+        removeElement1(arr, var);
+    }
+
+    private static void removeElement1(int[] arr, int var) {
+        List<Integer> list = new ArrayList<>();
+        for (int num : arr) {
+            if (!list.contains(num)) {
+                list.add(num);
+            }
+        }
+        System.out.println("去除重复后的list集合" + list);
+
     }
 
     public static int removeElement(int[] nums, int val) {

@@ -1,6 +1,5 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 
-import sun.security.util.ArrayUtil;
 
 public class QuickSort1 {
     public static void main(String[] args) {

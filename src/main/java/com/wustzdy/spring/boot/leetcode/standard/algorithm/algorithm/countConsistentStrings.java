@@ -31,6 +31,10 @@ public class countConsistentStrings {
         String[] words = {"ad", "bd", "aaab", "baa", "badab"};
         int count = countConsistentStrings(allowed, words);
         System.out.println("count: " + count);
+
+        String[] word1 = {"abc", "d", "defg"};
+        String[] word2 = {"abcddef"};
+        System.out.println(arrayStringsAreEqual(word1, word2));
     }
 
     public static int countConsistentStrings(String allowed, String[] words) {
@@ -48,5 +52,17 @@ public class countConsistentStrings {
             }
         }
         return count;
+    }
+
+    public static boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        StringBuilder w1 = new StringBuilder();
+        StringBuilder w2 = new StringBuilder();
+        for (String s : word1) {
+            w1.append(s);
+        }
+        for (String s : word2) {
+            w2.append(s);
+        }
+        return w1.toString().equals(w2.toString());
     }
 }

@@ -24,4 +24,16 @@ public class longestCommonPrefix {
         }
         return prefix;
     }
+//        String str = "flower,flow,flight";
+    public static String longestCommonPrefix1(String[] strs) {
+        if (strs.length == 0) return "";
+        String res = strs[0];  //用于储存最长公共前缀，初始化为strs[0]
+        for (String str : strs) {
+            //当字符串str不以res为前缀时，就对res截断最后一个字符
+            while (!str.startsWith(res)) {
+                res = res.substring(0, res.length() - 1);
+            }
+        }
+        return res;
+    }
 }

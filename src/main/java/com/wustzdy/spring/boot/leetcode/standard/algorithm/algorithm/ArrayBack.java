@@ -11,14 +11,13 @@ public class ArrayBack {
         for (int i : resultArray) {
             System.out.print(i + " ");
         }
-
     }
 
     private static int[] LeftMove(int[] array, int size, int p) {
-        int[] array1 = Reverse(array, 15, p);
-        int[] array2 = Reverse(array1, p, size - 1);
-        int[] resultArray = Reverse(array2, 0, size - 1);
-        return resultArray;
+        Reverse(array, 15, p);
+        Reverse(array, p, size - 1);
+        Reverse(array, 0, size - 1);
+        return array;
     }
 
     private static int[] Reverse(int[] array, int left, int right) {

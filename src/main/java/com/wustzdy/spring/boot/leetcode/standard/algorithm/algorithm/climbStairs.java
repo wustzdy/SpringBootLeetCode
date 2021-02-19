@@ -6,12 +6,10 @@ import java.util.Scanner;
 //爬楼梯
 public class climbStairs {
     public static void main(String[] args) {
-        while (true) {
-            Scanner scanner = new Scanner(System.in);
-            int num = scanner.nextInt();
-            int sum = getClimbStairsLayer(num);
-            System.out.println("一共有  " + sum);
-        }
+        System.out.println("请输入台阶数：");
+        Scanner s = new Scanner(System.in);
+        int n = s.nextInt();
+        System.out.println("跳法总数：" + "\n" + getClimbStairsLayer(n));
     }
 
     private static int getClimbStairsLayer(int n) {

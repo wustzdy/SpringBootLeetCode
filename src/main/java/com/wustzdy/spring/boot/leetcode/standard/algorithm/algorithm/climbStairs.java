@@ -22,10 +22,10 @@ public class climbStairs {
         System.out.println("请输入台阶数：");
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        System.out.println("跳法总数：" + "\n" + getClimbStairsLayer(n));
+        System.out.println("跳法总数：" + "\n" + JumpFloor(n));
     }
 
-    //递归
+    //递归-递归法
     private static int getClimbStairsLayer(int n) {
         if (n == 1) {
             return 1;
@@ -37,9 +37,9 @@ public class climbStairs {
     }
 
     /**
-     * 非递归实现
+     * 非递归实现-迭代
      **/
-    public int JumpFloor(int target) {
+    public static int JumpFloor(int target) {
         //青蛙跳台阶，一次可以跳上1级台阶，也可以跳上2级台阶
         if (target == 1) {
             return 1;

@@ -8,6 +8,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 //2.将一长度为n的数组的前端k(k<n)个元素保持原序移动到数组后端，要求原数组中数据不丢失;
 //
 //3.将数组中的元素(Xo, X1, ... Xn-1)，经过移动后变为:(Xp, Xp+1, ...Xn-1, Xo, X1, ..Xp-1) ，即循环左移p(0<p<n)个位置。
+
+//https://blog.csdn.net/weixin_43574050/article/details/105036639
 public class StringLeftRetote1 {
     public static void main(String[] args) {
         int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};

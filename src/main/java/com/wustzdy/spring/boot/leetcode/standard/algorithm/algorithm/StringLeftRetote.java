@@ -8,9 +8,9 @@ public class StringLeftRetote {
         int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int p = 5;
         int n = 10;
-        Reverse(0, p - 1, array);
-        Reverse(p, n - 1, array);
-        Reverse(0, n - 1, array);
+        Reverse(0, p - 1, array);////逆置前P个
+        Reverse(p, n - 1, array);//逆置后n-p个
+        Reverse(0, n - 1, array);//逆置整个数组
 
         for (int i : array) {
             System.out.print(i + " ");
@@ -27,5 +27,4 @@ public class StringLeftRetote {
             A[right - i] = temp;
         }
     }
-
 }

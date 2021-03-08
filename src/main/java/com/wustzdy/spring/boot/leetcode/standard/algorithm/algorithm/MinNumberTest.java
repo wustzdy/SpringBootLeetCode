@@ -40,7 +40,7 @@ public class MinNumberTest {
         }
         return i + 1;
     }
-
+//[-1,2,3,4]。返回1。
     public static int missNum(int[] arr) {
         int l = 0; //l表示已经从1到L已经出现（左边界），l的初值为0。
         int r = arr.length; //如果一个数字过大（不合法），就会被扔掉，用r表示这个右边界，r初始值为arr长度。

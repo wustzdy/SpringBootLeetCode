@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
 /**
  * 合并两个有序的单链表

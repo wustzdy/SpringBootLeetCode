@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
 //https://blog.csdn.net/qq_38574563/article/details/107339396
 //https://www.bilibili.com/video/av243506152/

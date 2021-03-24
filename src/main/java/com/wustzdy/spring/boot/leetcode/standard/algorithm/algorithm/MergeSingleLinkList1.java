@@ -8,6 +8,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
         （2）通过循环循环依次获得链表1和链表2中数据较小 的节点，并添加到合并链表的末尾 。
         （3）当步骤2执行完毕，如果某一链表中的首节点不为null,则将该链表首节点及其之后的节点添加到合并后链表的末尾。
  */
+//https://blog.csdn.net/XUkiaa/article/details/89574869  C语言版
 public class MergeSingleLinkList1 {
     public static void main(String[] args) {
         //创建两个单链表

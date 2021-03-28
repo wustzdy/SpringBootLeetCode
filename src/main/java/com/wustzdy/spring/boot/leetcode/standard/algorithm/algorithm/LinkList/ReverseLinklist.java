@@ -1,13 +1,15 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
+//https://www.bilibili.com/video/BV1Wa4y1Y7ji/?spm_id_from=333.788.recommend_more_video.1
+//https://www.bilibili.com/video/BV13v411B74n
 //单链表的反转
 public class ReverseLinklist {
     public static void main(String[] args) {
         // 创建一个单链表
         Node lastNode = new Node(44);
-        Node node3 = new Node(33, lastNode);
-        Node node2 = new Node(22, node3);
-        Node headNode = new Node(11, node2);
+//        Node node3 = new Node(33, lastNode);
+//        Node node2 = new Node(22, node3);
+        Node headNode = new Node(11, lastNode);
         print(headNode);
         System.out.println("-------");
         Node reverse = reverseLinkedList(headNode);

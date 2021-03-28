@@ -12,9 +12,16 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 //https://blog.csdn.net/weixin_43574050/article/details/105036639
 public class StringLeftRetote1 {
     public static void main(String[] args) {
-        int array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int p = 5;
-        reverse(array, 0, array.length-1, p);////逆置前P
+        int array[] = {1, 2, 3, 4, 5};
+        int p = 3;
+        //1,
+//        reverse(array, 0, array.length - 1, p);////逆置前P
+
+        //2,
+        moveToEnd(array, array.length, p);
+
+        //3,
+        moveP(array, array.length, p);
         for (int i : array) {
             System.out.print(i + ",");
         }
@@ -25,7 +32,7 @@ public class StringLeftRetote1 {
        left:左边起点
       right:右边终点
           k:要移动的元素个数*/
-    static void reverse(int a[], int left, int right, int k) {
+    private static void reverse(int a[], int left, int right, int k) {
         int temp;
         for (int i = left, j = right; i < left + k && i < j; ++i, --j) {
             temp = a[i];
@@ -35,14 +42,14 @@ public class StringLeftRetote1 {
     }
 
     //第二题
-    void moveToEnd(int a[], int n, int k) {
+    private static void moveToEnd(int a[], int n, int k) {
         reverse(a, 0, k - 1, k); //reverse函数为第一题中的
         reverse(a, 0, n - 1, k);
     }
 
 
     //第三题
-    static void moveP(int a[], int n, int p) {
+    private static void moveP(int a[], int n, int p) {
         reverse(a, 0, p - 1, p);
         reverse(a, p, n - 1, n - p);
         reverse(a, 0, n - 1, n);

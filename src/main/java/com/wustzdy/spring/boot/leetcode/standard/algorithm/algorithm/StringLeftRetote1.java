@@ -18,13 +18,22 @@ public class StringLeftRetote1 {
 //        reverse(array, 0, array.length - 1, p);////逆置前P
 
         //2,
-        moveToEnd(array, array.length, p);
+//        moveToEnd(array, array.length, p);
 
         //3,
-        moveP(array, array.length, p);
+//        moveP(array, array.length, p);
+        //3,
+        moveP1(array, 3, array.length);
         for (int i : array) {
             System.out.print(i + ",");
         }
+
+    }
+
+    private static void moveP1(int[] array, int p, int n) {
+        Reverse(0, p - 1, array);////逆置前P个
+        Reverse(p, n - 1, array);//逆置后n-p个
+        Reverse(0, n - 1, array);//逆置整个数组
     }
 
     /*参数说明：
@@ -53,5 +62,16 @@ public class StringLeftRetote1 {
         reverse(a, 0, p - 1, p);
         reverse(a, p, n - 1, n - p);
         reverse(a, 0, n - 1, n);
+    }
+
+    private static void Reverse(int left, int right, int A[]) {
+        if (left >= right || right >= A.length)
+            return;
+        int mid = (left + right) / 2;
+        for (int i = 0; i <= mid - left; i++) {
+            int temp = A[left + i];
+            A[left + i] = A[right - i];
+            A[right - i] = temp;
+        }
     }
 }

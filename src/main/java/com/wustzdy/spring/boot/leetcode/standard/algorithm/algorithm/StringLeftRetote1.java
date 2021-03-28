@@ -21,13 +21,28 @@ public class StringLeftRetote1 {
 //        moveToEnd(array, array.length, p);
 
         //3,
-        moveP(array, array.length, p);
+//        moveP(array, array.length, p);
         //3,
 //        moveP1(array, 3, array.length);
-        for (int i : array) {
+        //3,
+        movep2(array, 3);
+       /* for (int i : array) {
             System.out.print(i + ",");
-        }
+        }*/
 
+    }
+
+    private static void movep2(int[] array, int p) {
+        int[] tempArray = new int[array.length];
+        for (int i = p, j = 0; i < array.length && j < array.length - p; i++, j++) {
+            tempArray[j] = array[i];
+        }
+        for (int i = 0, j = p - 1; i < p && j < array.length; i++, j++) {
+            tempArray[j] = array[i];
+        }
+        for (int i : tempArray) {
+            System.out.print(i + " ");
+        }
     }
 
     private static void moveP1(int[] array, int p, int n) {

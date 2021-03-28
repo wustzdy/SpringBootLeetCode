@@ -21,9 +21,9 @@ public class StringLeftRetote1 {
 //        moveToEnd(array, array.length, p);
 
         //3,
-//        moveP(array, array.length, p);
+        moveP(array, array.length, p);
         //3,
-        moveP1(array, 3, array.length);
+//        moveP1(array, 3, array.length);
         for (int i : array) {
             System.out.print(i + ",");
         }

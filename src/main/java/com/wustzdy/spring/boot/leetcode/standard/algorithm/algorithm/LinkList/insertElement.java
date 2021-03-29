@@ -1,5 +1,6 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
+//https://blog.csdn.net/weixin_34061042/article/details/89441426
 /*1.设顺序表用数组A[]表示，表中元素存储在数组下标1~m+n的范围内，前m个元素递增有序，后n个元素也递增有序，设计一个算法，使得整个顺序表有序。
         (1) 给出算法的基本设计思想。
         (2) 根据设计思想，采用C或C++语言描述算法，并在关键之处给出注释。
@@ -24,6 +25,19 @@ public class insertElement {
                 A[j + 1] = A[j];
             }
             A[j + 1] = temp;
+        }
+    }
+
+    private static void StraightSort(int[] arr, int len) {
+        int tmp;
+        int i;
+        int j;
+        for (i = 1; i < len; i++) {
+            tmp = arr[i];
+            for (j = i - 1; j >= 0 && arr[j] > tmp; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[j + 1] = tmp;
         }
     }
 }

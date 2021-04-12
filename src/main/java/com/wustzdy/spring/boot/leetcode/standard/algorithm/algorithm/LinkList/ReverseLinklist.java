@@ -2,6 +2,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
 //https://www.bilibili.com/video/BV1Wa4y1Y7ji/?spm_id_from=333.788.recommend_more_video.1
 //https://www.bilibili.com/video/BV13v411B74n
+//https://haokan.baidu.com/v?vid=8105262896543583302&pd=bjh&fr=bjhauthor&type=video
 //单链表的反转
 public class ReverseLinklist {
     public static void main(String[] args) {

@@ -4,10 +4,10 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 //1，将一长度为n的数组的前端k(k<n)个元素逆序后移动到数组的后端，要求数组中数据元素不丢失，
 public class ArrayReverse {
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7};
+        int[] array = {1, 2, 3, 4, 6, 5, 7};
         int left = 0;
         int right = array.length - 1;
-        int k = 3;
+        int k = 4;
         int[] reverseArray = reverseArray(array, left, right, k);
         for (int element : reverseArray) {
             System.out.print(element + " ");

@@ -18,17 +18,17 @@ public class StringLeftRetote1 {
 //        reverse(array, 0, array.length - 1, p);////逆置前P
 
         //2,
-//        moveToEnd(array, array.length, p);
+        move2(array, array.length, p);
 
         //3,
 //        moveP(array, array.length, p);
         //3,
 //        moveP1(array, 3, array.length);
         //3,
-        movep2(array, 3);
-       /* for (int i : array) {
+//        movep2(array, 3);
+        for (int i : array) {
             System.out.print(i + ",");
-        }*/
+        }
 
     }
 
@@ -88,5 +88,10 @@ public class StringLeftRetote1 {
             A[left + i] = A[right - i];
             A[right - i] = temp;
         }
+    }
+
+    private static void move2(int[] array, int n, int k) {
+        reverse(array, 0, n - 1, k);
+        reverse(array, n - k, n, k);
     }
 }

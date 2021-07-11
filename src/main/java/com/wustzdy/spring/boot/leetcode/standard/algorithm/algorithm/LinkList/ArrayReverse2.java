@@ -5,24 +5,25 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 public class ArrayReverse2 {
     public static void main(String[] args) {
         int arr[] = {7, 2, 3, 6, 10, 5};
-        /*int m = 4;
+        int m = 4;
         int n = 2;
         int length = 6;
-        exchange(arr, m, n, length);*/
-
-        int m = 0;
-        int n = 5;
-        int length = 6;
-        reverse(arr, m, n, length);
+        exchange(arr, m, n, length);
     }
 
     static void reverse(int arr[], int left, int right, int length) {
-        int mid = (left + right) / 2;
-        for (int i = 0; i < mid; i++) {
+        /*int mid = (left + right) / 2;
+        for (int i = 0; i <= mid - left; i++) {
+            int temp = arr[left + i];
+            arr[left + i] = arr[right - i];
+            arr[right - i] = temp;
+        }*/
+        for (int i = left, j = right; i < j; i++, j--) {
             int temp = arr[i];
-            arr[i] = arr[length - 1 - i];
-            arr[length - 1 - i] = temp;
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
+
 
         for (int j : arr) {
             System.out.print(j + ",");
@@ -31,5 +32,19 @@ public class ArrayReverse2 {
 
     static void exchange(int arr[], int m, int n, int arraySize) {
         reverse(arr, 0, m + n - 1, arraySize);
+
+        System.out.println("---");
+        reverse(arr, 0, n - 1, n);
+
+        System.out.println("---");
+        reverse(arr, n, m + n - 1, m);
     }
 }
+
+/*
+7, 2, 3, 6, 10, 5
+5,10,6,3,2,7,---
+
+10,5,6,3,2,7,---
+
+10,5,7,2,3,6,*/

@@ -25,6 +25,7 @@ public class StringLeftRetote1 {
         }
     }
 
+    //字符串逆置
     private static void Reverse(int left, int right, int A[]) {
         if (left >= right || right >= A.length)
             return;

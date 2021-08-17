@@ -39,6 +39,4 @@ public class RemoveDuplicateTest {
         }
         return i + 1;
     }
-
-
 }

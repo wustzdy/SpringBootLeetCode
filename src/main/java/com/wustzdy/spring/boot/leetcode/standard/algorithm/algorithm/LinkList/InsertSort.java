@@ -1,6 +1,6 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
-public class InsertSort {
+public class insertSort {
     public static void main(String[] args) {
         int[] arr = {1, 4, 7, 8, 10};
         int x = 5;

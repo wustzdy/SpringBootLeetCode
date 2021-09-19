@@ -1,7 +1,6 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.sort;
 
-import java.util.Arrays;
-
+//直接掺入排序
 public class InsertSortTest {
     public static void main(String[] args) {
         int array[] = {49, 38, 65, 13};

@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.sort;
 
 import java.util.Arrays;
 

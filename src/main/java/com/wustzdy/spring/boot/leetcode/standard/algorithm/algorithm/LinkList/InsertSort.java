@@ -2,8 +2,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
 public class insertSort {
     public static void main(String[] args) {
-        int[] arr = {1, 4, 7, 8, 10};
-        int x = 5;
+        int[] arr = {13,38,49,65,76,97,59};
+        int x = 27;
         int length = arr.length;
         sort(arr, x, length);
     }

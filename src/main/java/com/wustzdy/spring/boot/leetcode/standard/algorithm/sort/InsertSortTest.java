@@ -1,10 +1,14 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.sort;
 
+import java.util.Arrays;
+
 //直接掺入排序
 public class InsertSortTest {
     public static void main(String[] args) {
         int array[] = {49, 38, 65, 13};
         insertSortFunction(array);
+        System.out.println("After: " + Arrays.toString(array));
+
     }
 
     private static void insertSortFunction(int[] array) {
@@ -19,8 +23,8 @@ public class InsertSortTest {
             }
             array[j + 1] = temp;
         }
-        for (int x : array) {
+        /*for (int x : array) {
             System.out.print(x + " ");
-        }
+        }*/
     }
 }

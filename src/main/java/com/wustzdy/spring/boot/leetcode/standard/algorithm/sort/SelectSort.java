@@ -4,15 +4,14 @@ import java.util.Arrays;
 
 public class SelectSort {
     public static void main(String[] args) {
-        int[] arr = {5, 8, 6, 3, 9, 2, 1, 7};
-//        int[] result = selectSort(arr);
-//        for (int i : result) {
-//            System.out.print(i + " ");
-//        }
+        int[] arr = {27, 38, 13, 49};
+       /* selectSort(arr);
+        System.out.println(Arrays.toString(arr));*/
         selectSort(arr, arr.length);
+        System.out.println(Arrays.toString(arr));
     }
 
-    private static int[] selectSort(int[] arr) {
+    private static void selectSort(int[] arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             // 找出最小值得元素下标
             for (int j = i + 1; j < arr.length; j++) {
@@ -22,27 +21,24 @@ public class SelectSort {
                     arr[i] = tmp;
                 }
             }
-            System.out.println(Arrays.toString(arr));
         }
-        return arr;
-
     }
 
     public static void selectSort(int[] arr, int n) {
         // 2, 3, 6, 777, 8
-        for (int i = 0; i < n - 1; i++) {
+        for (int i = 0; i < n; i++) {
             int index = i;
-            int j;
             // 找出最小值的元素下标
-            for (j = i + 1; j < n; j++) {
+            for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[index]) {
                     index = j;
                 }
             }
-            int tmp = arr[index];
-            arr[index] = arr[i];
-            arr[i] = tmp;
-            System.out.println(Arrays.toString(arr));
+            if (index != i) {
+                int tmp = arr[index];
+                arr[index] = arr[i];
+                arr[i] = tmp;
+            }
         }
 
     }

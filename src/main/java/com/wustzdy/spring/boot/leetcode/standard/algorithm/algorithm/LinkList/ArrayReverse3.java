@@ -1,5 +1,7 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
+import static com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList.ArrayReverse2.exchange;
+
 //字符串反转
 public class ArrayReverse3 {
     public static void main(String[] args) {
@@ -17,11 +19,11 @@ public class ArrayReverse3 {
             arr[left + i] = arr[right - i];
             arr[right - i] = temp;
         }
-        /*for (int i = left, j = right; i < j; i++, j--) {
+        for (int i = left, j = right; i < j; i++, j--) {
             int temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
-        }*/
+        }
 
 
         for (int j : arr) {

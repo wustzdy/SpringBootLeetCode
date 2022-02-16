@@ -16,11 +16,14 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 //最大子序列和的四种算法实现(循序渐进)
 public class Test_06_MaxSubArray {
     public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int max = subsequencesum_max(nums);
+//        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int[] nums = {1,-2,4,5,-7,6,-4};
+        int max = maxSubArray(nums);
         System.out.println("max: " + max);
     }
 
+    //动态规划
+    //若前一个元素大于0，则将其加入到当前元素上
     public static int maxSubArray(int[] arr) {
         int max = arr[0];
         int sum = arr[0];

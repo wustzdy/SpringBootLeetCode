@@ -1,13 +1,11 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.annotation.resource;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-@Service("HelloService1")
-@Primary
-public class HelloService1 implements HelloService {
+@Service(value = "userService2")
+public class UserService2 implements UserService {
     @Override
     public String satHello(String name) {
-        return "HelloService1:" + name;
+        return "HelloService2:" + name;
     }
 }

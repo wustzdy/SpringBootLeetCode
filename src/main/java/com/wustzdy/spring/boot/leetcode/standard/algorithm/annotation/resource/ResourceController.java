@@ -9,12 +9,12 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("resource2/test")
 public class ResourceController {
-    @Resource
-    private UserService userService2;
+    @Resource(name = "userService2")//@Resource(type = UserService2.class)一回事
+    private UserService userService;
 
     @RequestMapping("/test")
     public String resourceTest(@RequestParam("name") String name) {
-        return userService2.satHello(name);
+        return userService.satHello(name);
     }
 
 }

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("resource/test")
+@RequestMapping("resource2/test")
 public class ResourceController {
     @Resource
     private UserService userService2;

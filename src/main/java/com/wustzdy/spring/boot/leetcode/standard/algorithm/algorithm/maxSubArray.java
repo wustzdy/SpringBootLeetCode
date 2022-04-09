@@ -17,7 +17,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm;
 public class maxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int max = maxSubArray(nums);
+        int max = subsequencesum_max(nums);
         System.out.println("max: " + max);
     }
 
@@ -37,4 +37,18 @@ public class maxSubArray {
         }
         return max;
     }
+
+    public static int subsequencesum_max(int[] arr) {
+        int sum = 0, sum_max = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            if (sum > sum_max)
+                sum_max = sum;
+            else if (sum < 0)
+                sum = 0;
+        }
+        return sum_max;
+    }
+
+
 }

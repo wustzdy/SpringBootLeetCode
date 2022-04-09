@@ -15,8 +15,8 @@ public class longestCommonPrefix {
         if (strs.length == 0)
             return "";
         String prefix = strs[0];
-        for (int i = 1; i < strs.length; i++) {
-            while (strs[i].indexOf(prefix) != 0) {
+        for (String str : strs) {
+            while (str.indexOf(prefix) != 0) {
                 prefix = prefix.substring(0, prefix.length() - 1);
                 if (prefix.isEmpty())
                     return "";
@@ -24,7 +24,8 @@ public class longestCommonPrefix {
         }
         return prefix;
     }
-//        String str = "flower,flow,flight";
+
+    //        String str = "flower,flow,flight";
     public static String longestCommonPrefix1(String[] strs) {
         if (strs.length == 0) return "";
         String res = strs[0];  //用于储存最长公共前缀，初始化为strs[0]

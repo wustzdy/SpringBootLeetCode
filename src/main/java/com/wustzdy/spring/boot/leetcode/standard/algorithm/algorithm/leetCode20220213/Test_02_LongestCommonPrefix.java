@@ -25,7 +25,6 @@ public class Test_02_LongestCommonPrefix {
         }
         return prefix;
     }
-
     //        String str = "flower,flow,flight";
     public static String longestCommonPrefix1(String[] strs) {
         if (strs.length == 0) return "";

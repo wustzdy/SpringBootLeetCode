@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import org.apache.commons.text.StringSubstitutor;
 
 import java.util.*;
 
@@ -124,14 +123,14 @@ public class Test {
         for (ParamProvider paramProvider : paramProviders) {
             valuesMap.put(paramProvider.getParam().getValueName(), paramProvider.getValue());
         }
-        StringSubstitutor sub = new StringSubstitutor(valuesMap);
+      /*  StringSubstitutor sub = new StringSubstitutor(valuesMap);*/
 
 
-        //stationLetter
-        String stationLetterTitle = sub.replace(title);
-        System.out.println("stationLetterTitle:" + stationLetterTitle);
-        String stationLetterContent = sub.replace(content);
-        System.out.println("stationLetterContent:" + stationLetterContent);
+      /*  //stationLetter*/
+      /*  String stationLetterTitle = sub.replace(title);*/
+      /*  System.out.println("stationLetterTitle:" + stationLetterTitle);*/
+      /*  String stationLetterContent = sub.replace(content);*/
+      /*  System.out.println("stationLetterContent:" + stationLetterContent);*/
     }
 
 }

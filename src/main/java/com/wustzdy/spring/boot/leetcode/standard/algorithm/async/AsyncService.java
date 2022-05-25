@@ -17,4 +17,15 @@ public class AsyncService {
             log.error("sleep error.");
         }
     }
+
+    @Async
+    public void test2() {
+        try {
+            log.info(Thread.currentThread().getName() + " in test2, before sleep.");
+            Thread.sleep(2000);
+            log.info(Thread.currentThread().getName() + " in test2, after sleep.");
+        } catch (InterruptedException e) {
+            log.error("sleep error.");
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.test;
+package com.wustzdy.spring.boot.leetcode.standard.test.asyn;
 
 import com.wustzdy.spring.boot.leetcode.standard.algorithm.SpringBootMavenStandardApplication;
 import com.wustzdy.spring.boot.leetcode.standard.algorithm.async.AsyncService;

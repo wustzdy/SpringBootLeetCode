@@ -15,8 +15,8 @@ import java.util.concurrent.FutureTask;
 @Slf4j
 public class FutureTaskTest {
 
-    @Test
-    public void test() throws ExecutionException, InterruptedException {
+
+    public static void main(String[] args) {
         FutureTask<Integer> task = new FutureTask(() -> {
             System.out.println("--pre executions");
             int sum = 0;
@@ -36,7 +36,6 @@ public class FutureTaskTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
 //--pre executions

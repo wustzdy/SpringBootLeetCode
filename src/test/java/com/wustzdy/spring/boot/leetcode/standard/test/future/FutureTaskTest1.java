@@ -9,6 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringBootMavenStandardApplication.class)
@@ -59,7 +60,7 @@ public class FutureTaskTest1 {
 
         try {
             Thread.sleep(2000);//主线程睡眠2秒钟
-            System.out.println(Thread.currentThread().getName() + ":" + " get finally result:" + task.get());
+            System.out.println(Thread.currentThread().getName() + ":" + " get finally result:" + task.get(1, TimeUnit.MILLISECONDS));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,3 +72,9 @@ public class FutureTaskTest1 {
 //        main: get finally result:5050
 //
 //因为get()阻塞方法，导致主线程会停留
+
+/*
+
+?Future????????????????????????????? ??????????
+        ????Future????????get(long,TimeUnit)????????
+        ???????????????? ?????   ??????????*/

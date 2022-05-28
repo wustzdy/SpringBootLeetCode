@@ -19,6 +19,7 @@ Spring的注解@Qualifier注解
 @RequestMapping("/test/Qualifier")
 public class EmployeeInfoControl {
     @Qualifier("b")
+    @Autowired
     private EmployeeService employeeService;
 
     @RequestMapping("/test")

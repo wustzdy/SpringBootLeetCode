@@ -23,3 +23,10 @@ public class Resource3Controller {
     }
 
 }
+
+/*
+
+@Resource如有指定的name属性，先按该属性进行byName方式查找装配；
+        其次再进行默认的byName方式进行装配；
+        如果以上都不成功，则按byType的方式自动装配。
+        都不成功，则报异常。*/

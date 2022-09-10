@@ -21,7 +21,7 @@ public class SemaphoreTest1 {
         Semaphore semaphoreC = new Semaphore(0);
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     // A线程获得许可，同时semaphoreA的许可数减为0,进入下一次循环时
                     // A线程会阻塞，知道其他线程执行semaphoreA.release();
@@ -37,7 +37,7 @@ public class SemaphoreTest1 {
         }, "A").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     semaphoreB.acquire();
                     System.out.print(Thread.currentThread().getName());
@@ -49,7 +49,7 @@ public class SemaphoreTest1 {
         }, "B").start();
 
         new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     semaphoreC.acquire();
                     System.out.print(Thread.currentThread().getName());

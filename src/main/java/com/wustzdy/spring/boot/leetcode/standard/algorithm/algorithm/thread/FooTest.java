@@ -15,6 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FooTest {
     private static AtomicInteger firstJobDone = new AtomicInteger(0);
     private static AtomicInteger secondJobDone = new AtomicInteger(0);
+    private static AtomicInteger thirdJobDone = new AtomicInteger(0);
 
     public FooTest() {
     }
@@ -42,6 +43,13 @@ public class FooTest {
         }
         // printThird.run() outputs "third".
         printThird.run();
+        thirdJobDone.incrementAndGet();
+    }
+
+    public static void fourth(Runnable fourthThird) throws InterruptedException {
+        while (thirdJobDone.get() != 1) {
+        }
+        fourthThird.run();
     }
 
     public static void main(String[] args) {
@@ -77,5 +85,16 @@ public class FooTest {
             }
         });
         third.start();
+
+        Thread fourthThird = new Thread(() -> {
+            try {
+                FooTest.first(() -> {
+                    System.out.println("fourth");
+                });
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        fourthThird.start();
     }
 }

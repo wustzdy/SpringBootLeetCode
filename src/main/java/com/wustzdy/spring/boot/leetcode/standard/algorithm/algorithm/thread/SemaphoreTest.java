@@ -16,7 +16,7 @@ public class SemaphoreTest {
     static class Thread1 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 2; i++) {
                 try {
                     s1.acquire();
                     System.out.printf("%s", "1");
@@ -33,11 +33,11 @@ public class SemaphoreTest {
     static class Thread2 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 2; i++) {
                 try {
                     s2.acquire();
                     System.out.printf("%s", "2");
-                    s3.release();
+//                    s3.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -50,11 +50,11 @@ public class SemaphoreTest {
     static class Thread3 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < 50; i++) {
+            for (int i = 0; i < 2; i++) {
                 try {
                     s3.acquire();
                     System.out.printf("%s", "3");
-                    s1.release();
+//                    s1.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

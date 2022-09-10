@@ -1,6 +1,7 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.thread;
 
 import java.util.concurrent.atomic.AtomicInteger;
+
 //1114. 按序打印
 /*三个不同的线程 A、B、C 将会共用一个 Foo 实例。
 
@@ -53,7 +54,7 @@ public class FooTest {
                 e.printStackTrace();
             }
         });
-        first.run();
+        first.start();
 
         Thread second = new Thread(() -> {
             try {
@@ -64,7 +65,7 @@ public class FooTest {
                 e.printStackTrace();
             }
         });
-        second.run();
+        second.start();
 
         Thread third = new Thread(() -> {
             try {
@@ -75,6 +76,6 @@ public class FooTest {
                 e.printStackTrace();
             }
         });
-        third.run();
+        third.start();
     }
 }

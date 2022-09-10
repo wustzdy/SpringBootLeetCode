@@ -2,6 +2,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.thread;
 
 import java.util.concurrent.Semaphore;
 
+//实现 3 个线程 A、B、C，A 线程持续打印“A”，B 线程持续打印“B”，C 线程持续打印“C”，
+// 启动顺序是线程 C、线程 B、线程 A，打印的结果是：ABC。
 public class ABCThread3 {
     private static Semaphore semaphoreA = new Semaphore(1);
     private static Semaphore semaphoreB = new Semaphore(1);

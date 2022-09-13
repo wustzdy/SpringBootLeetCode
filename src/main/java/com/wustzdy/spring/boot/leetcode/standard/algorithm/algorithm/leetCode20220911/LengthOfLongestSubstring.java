@@ -102,7 +102,7 @@ public class LengthOfLongestSubstring {
         Set<Character> windowSet = new HashSet<>();
         while (left < s.length() && right < s.length()) {
             if (windowSet.contains(s.charAt(right))) {
-                windowSet.remove(left);
+                windowSet.remove(s.charAt(left));
                 left++;
             } else {
                 windowSet.add(s.charAt(right));

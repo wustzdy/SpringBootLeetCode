@@ -1,6 +1,5 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20220911;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hundred;
 
-import javax.validation.constraints.Max;
 import java.util.HashSet;
 import java.util.Set;
 //3. 无重复字符的最长子串
@@ -21,7 +20,8 @@ import java.util.Set;
         解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
         请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。*/
 //https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/by-sdwwld-t6wg/
-public class LengthOfLongestSubstring {
+
+public class test_003_LengthOfLongestSubstring {
     public static void main(String[] args) {
         String str = "abcabcbb";
         System.out.println("length: " + lengthOfLongestSubstring4(str));
@@ -94,20 +94,23 @@ public class LengthOfLongestSubstring {
         }
         return maxLength;
     }
+
     //https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/ren-zhe-suan-fa-7fen-zhong-bai-ban-dai-m-0u35/
     public static int lengthOfLongestSubstring4(String s) {
         int maxLength = 0;//abcabcbb
-        int left = 0;
-        int right = 0;
+        int left = 0;// 窗口的左边界
+        int right = 0;// 窗口的右边界
         Set<Character> windowSet = new HashSet<>();
         while (left < s.length() && right < s.length()) {
+            // 如果窗口中包含当前元素，说明出现了重复，
+            // 把窗口最左端的给移除掉，直到窗口不包含当前元素即可
             if (windowSet.contains(s.charAt(right))) {
                 windowSet.remove(s.charAt(left));
                 left++;
             } else {
-                windowSet.add(s.charAt(right));
+                windowSet.add(s.charAt(right));//把当前元素添加到窗口中
                 right++;
-                int currentMaxLength = right - left;
+                int currentMaxLength = right - left;//更新窗口的长度
                 maxLength = Math.max(maxLength, currentMaxLength);
             }
         }

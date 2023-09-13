@@ -18,7 +18,7 @@ public class Test_06_MaxSubArray {
     public static void main(String[] args) {
 //        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 //        int[] nums = {1,-2,4,5,-7,6,-4};
-        int[] nums = {1,-2,3,10,-4,7,2,-5};
+        int[] nums = {1,-2};
         int max = maxSubArray(nums);
         System.out.println("max: " + max);
     }
@@ -31,7 +31,7 @@ public class Test_06_MaxSubArray {
     //动态规划
     //若前一个元素大于0，则将其加入到当前元素上
     public static int maxSubArray(int[] arr) {
-        int[] nums = {1,-2,4,5,-7,6,-4};
+        int[] nums = {1,-2};
         int max = arr[0];
         int sum = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -40,9 +40,6 @@ public class Test_06_MaxSubArray {
             } else {
                 sum = arr[i];
             }
-            /*if (max < sum) {
-                max = sum;
-            }*/
             max = Math.max(sum, max);
         }
         return max;
@@ -57,14 +54,15 @@ public class Test_06_MaxSubArray {
      版权声明：本文为CSDN博主「rikka-l」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
      原文链接：https://blog.csdn.net/csdnwqy030429/article/details/120895492*/
     public static int subsequencesum_max(int[] arr) {
-        int sum = 0, sum_max = 0;
+        int[] nums = {1,-2,4,5,-7,6,-4};
+        int sum = 0, max = 0;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
-            if (sum > sum_max)
-                sum_max = sum;
+            if (sum > max)
+                max = sum;
             else if (sum < 0)
                 sum = 0;
         }
-        return sum_max;
+        return max;
     }
 }

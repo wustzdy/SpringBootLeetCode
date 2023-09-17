@@ -18,8 +18,9 @@ public class Test_06_MaxSubArray {
     public static void main(String[] args) {
 //        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
 //        int[] nums = {1,-2,4,5,-7,6,-4};
-        int[] nums = {1,-2};
-        int max = maxSubArray(nums);
+//        int[] nums = {1,-2,3,10,-4,7,2,-5};
+        int[] nums = {-1};
+        int max = subsequencesum_max(nums);
         System.out.println("max: " + max);
     }
    /* 思路
@@ -31,7 +32,7 @@ public class Test_06_MaxSubArray {
     //动态规划
     //若前一个元素大于0，则将其加入到当前元素上
     public static int maxSubArray(int[] arr) {
-        int[] nums = {1,-2};
+        int[] nums = {-1,-2};
         int max = arr[0];
         int sum = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -61,7 +62,7 @@ public class Test_06_MaxSubArray {
             if (sum > max)
                 max = sum;
             else if (sum < 0)
-                sum = 0;
+                max = 0;
         }
         return max;
     }

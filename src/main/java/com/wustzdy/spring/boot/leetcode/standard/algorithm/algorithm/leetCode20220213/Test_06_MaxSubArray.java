@@ -17,19 +17,21 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 public class Test_06_MaxSubArray {
     public static void main(String[] args) {
 //        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int[] nums = {1,-2,4,5,-7,6,-4};
+//        int[] nums = {1,-2,4,5,-7,6,-4};
+        int[] nums = {1,-2};
         int max = maxSubArray(nums);
         System.out.println("max: " + max);
     }
    /* 思路
     这道题用动态规划的思路并不难解决，比较难的是后文提出的用分治法求解，但由于其不是最优解法，所以先不列出来
-    动态规划的是首先对数组进行遍历，当前最大连续子序列和为 sum，结果为 ans
+    动态规划的是首先对数组进行遍历，当前最大连续子序列和为 sum，结果为 max
     如果 sum > 0，则说明 sum 对结果有增益效果，则 sum 保留并加上当前遍历数字
     如果 sum <= 0，则说明 sum 对结果无增益效果，需要舍弃，则 sum 直接更新为当前遍历数字
-    每次比较 sum 和 ans的大小，将最大值置为ans，遍历结束返回结果*/
+    每次比较 sum 和 max的大小，将最大值置为max，遍历结束返回结果*/
     //动态规划
     //若前一个元素大于0，则将其加入到当前元素上
     public static int maxSubArray(int[] arr) {
+        int[] nums = {1,-2};
         int max = arr[0];
         int sum = arr[0];
         for (int i = 1; i < arr.length; i++) {
@@ -38,9 +40,6 @@ public class Test_06_MaxSubArray {
             } else {
                 sum = arr[i];
             }
-            /*if (max < sum) {
-                max = sum;
-            }*/
             max = Math.max(sum, max);
         }
         return max;
@@ -55,14 +54,15 @@ public class Test_06_MaxSubArray {
      版权声明：本文为CSDN博主「rikka-l」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
      原文链接：https://blog.csdn.net/csdnwqy030429/article/details/120895492*/
     public static int subsequencesum_max(int[] arr) {
-        int sum = 0, sum_max = 0;
+        int[] nums = {1,-2,4,5,-7,6,-4};
+        int sum = 0, max = 0;
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];
-            if (sum > sum_max)
-                sum_max = sum;
+            if (sum > max)
+                max = sum;
             else if (sum < 0)
                 sum = 0;
         }
-        return sum_max;
+        return max;
     }
 }

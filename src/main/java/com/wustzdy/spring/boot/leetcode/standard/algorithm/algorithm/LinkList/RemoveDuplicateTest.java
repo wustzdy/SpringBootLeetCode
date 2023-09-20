@@ -13,9 +13,10 @@ import static jdk.nashorn.internal.objects.Global.print;
 // //https://www.jianshu.com/p/da38b14b0a67
 public class RemoveDuplicateTest {
     public static void main(String[] args) {
-        int[] nums = {1, 1, 2};
+        int[] nums = {0,0,1,1,1,2,2,3,3,4};
         // nums 是以“引用”方式传递的。也就是说，不对实参做任何拷贝
-        int len = removeDuplicates(nums);
+        int len = removeDuplicates2(nums);
+        System.out.println("len:" + len);
         // 在函数里修改输入数组对于调用者是可见的。
         // 根据你的函数返回的长度, 它会打印出数组中该长度范围内的所有元素。
        /* for (int i = 0; i < len; i++) {
@@ -27,6 +28,7 @@ public class RemoveDuplicateTest {
     }
 
     public static int removeDuplicates(int[] nums) {
+        //1 1 2
         if (nums.length == 0) {
             return 0;
         }
@@ -35,6 +37,20 @@ public class RemoveDuplicateTest {
             if (nums[i] != nums[j]) {
                 i++;
                 nums[i] = nums[j];
+            }
+        }
+        return i + 1;
+    }
+    public static int removeDuplicates2(int[] nums) {
+        //1 1 2
+        if (nums.length == 0) {
+            return 0;
+        }
+        int i = 0; //指针
+        for (int j = 1; j < nums.length; j++) {
+            if (nums[i] != nums[j]) {
+                nums[i+1] = nums[j];
+                i++;
             }
         }
         return i + 1;

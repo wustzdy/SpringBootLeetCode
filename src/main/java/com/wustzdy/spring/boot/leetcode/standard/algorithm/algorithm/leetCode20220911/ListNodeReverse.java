@@ -18,6 +18,7 @@ public class ListNodeReverse {
         ListNode newNode = ListNodeReverseFunction(oldLode);
         System.out.println(newNode);
     }
+
     private static ListNode ListNodeReverseFunction(ListNode oldNode) {
         ListNode newNode = null;
         ListNode p = oldNode;
@@ -27,6 +28,41 @@ public class ListNodeReverse {
         }
         return newNode;
     }
+
+    public ListNode ReverseList1(ListNode head) {
+        //        //  思路：用新头结点替换原头节点，并将原头节点后移一位，然后再次循环替换、移位，直至原头结点为空，最后返回新的头节点
+        // write code here
+        //创建新的头节点
+        ListNode newHead = null;
+        // 头节点不为空时进行循环
+        while (head != null) {
+            // 将头结点的下一个节点赋值给临时节点
+            ListNode temp = head.next;
+            // 头节点指向新的头节点
+            head.next = newHead;
+            // 头结点赋值给新的头节点
+            newHead = head;
+            // 临时节点赋值给头结点，完成头结点后移
+            head = temp;
+        }
+        // 返回新的头节点
+        return newHead;
+    }
+
+    public ListNode ReverseList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode cur = head, pre = null;
+        while (cur != null) {
+            ListNode tmp = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = tmp;
+        }
+        return pre;
+    }
+
     private static class ListNode {
         private int val;
         private ListNode next;

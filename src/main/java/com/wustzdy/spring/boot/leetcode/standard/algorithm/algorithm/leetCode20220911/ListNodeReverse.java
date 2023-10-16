@@ -15,7 +15,7 @@ public class ListNodeReverse {
         System.out.println(oldLode);
 
         System.out.println("链表反转后：");
-        ListNode newNode = ListNodeReverseFunction(oldLode);
+        ListNode newNode = ReverseList(oldLode);
         System.out.println(newNode);
     }
 
@@ -49,16 +49,17 @@ public class ListNodeReverse {
         return newHead;
     }
 
-    public ListNode ReverseList(ListNode head) {
+//    https://leetcode.cn/problems/reverse-linked-list/solutions/2361282/206-fan-zhuan-lian-biao-shuang-zhi-zhen-r1jel/
+    public static ListNode ReverseList(ListNode head) {
         if (head == null) {
             return null;
         }
         ListNode cur = head, pre = null;
         while (cur != null) {
-            ListNode tmp = cur.next;
-            cur.next = pre;
-            pre = cur;
-            cur = tmp;
+            ListNode tmp = cur.next;//// 暂存后继节点 cur.next
+            cur.next = pre;// 修改 next 引用指向
+            pre = cur;// pre 暂存 cur
+            cur = tmp;// cur 访问下一节点
         }
         return pre;
     }

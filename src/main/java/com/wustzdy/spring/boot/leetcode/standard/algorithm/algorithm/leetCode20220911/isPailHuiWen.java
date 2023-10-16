@@ -2,9 +2,10 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 
 public class isPailHuiWen {
     public static void main(String[] args) {
-        ListNode node5 = new ListNode(1, null);
-        ListNode node4 = new ListNode(2, node5);
-        ListNode node3 = new ListNode(0, node4);
+        ListNode node6 = new ListNode(1, null);
+        ListNode node5 = new ListNode(2, node6);
+        ListNode node4 = new ListNode(3, node5);
+        ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode oldLode = new ListNode(1, node2);
         System.out.println(oldLode);
@@ -13,14 +14,14 @@ public class isPailHuiWen {
         /*boolean flag = isPail(oldLode);
         System.out.println(flag);*/
 
-        ListNode mid = findMid(oldLode);
+       /* ListNode mid = findMid(oldLode);
         ListNode l1 = oldLode, l2 = mid;
         l2 = reverseList(l2);
         boolean flag = isSame(l1, l2);
-        System.out.println(flag);
-
-      /*  boolean flag = isPalindrome(oldLode);
         System.out.println(flag);*/
+
+        boolean flag = isPalindrome(oldLode);
+        System.out.println(flag);
     }
 
     /**
@@ -32,7 +33,7 @@ public class isPailHuiWen {
         // write code here
         ListNode fast = head;
         ListNode slow = head;
-        while (fast != null && fast.next != null) {
+        while (fast.next != null && fast.next.next != null) {
             fast = fast.next.next;
             slow = slow.next;
         }
@@ -118,8 +119,10 @@ public class isPailHuiWen {
         }
         return true;
     }
-//我们使用快慢指针 ，fast一次走两步，slow一次走一步。当fast到达表尾的时候，slow正好到达一半的位置，
+
+    //我们使用快慢指针 ，fast一次走两步，slow一次走一步。当fast到达表尾的时候，slow正好到达一半的位置，
 // 那么接下来可以从头开始逆序一半的元素，或者从slow开始逆序一半的元素，都可以。
+    //standard
     public static boolean isPalindrome(ListNode head) {
         // 要实现 O(n) 的时间复杂度和 O(1) 的空间复杂度，需要翻转后半部分
         if (head == null || head.next == null) {
@@ -137,9 +140,10 @@ public class isPailHuiWen {
         while (slow != null) {
             if (head.val != slow.val) {
                 return false;
+            } else {
+                head = head.next;
+                slow = slow.next;
             }
-            head = head.next;
-            slow = slow.next;
         }
         return true;
     }

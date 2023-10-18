@@ -22,7 +22,8 @@ public class climbStairs {
         System.out.println("请输入台阶数：");
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
-        System.out.println("跳法总数：" + "\n" + JumpFloor(n));
+        System.out.println("跳法总数：" + "\n" + jumpFloor(n));
+
     }
 
     //递归-递归法
@@ -62,6 +63,19 @@ public class climbStairs {
             last = sum;
         }
         return sum;
+    }
+
+    public static int jumpFloor(int number) {
+        int[] dp = new int[number + 1];//如果不初始化dp[0]，那就存数组的时候从1开始
+        if (number == 1) {  //如果数组下标从1开始，那么这里1的情况就要单独加进去
+            return 1;
+        }
+        dp[1] = 1;//到第一个台阶
+        dp[2] = 2;//到第二个台阶
+        for (int i = 3; i < number + 1; i++) {
+            dp[i] = dp[i - 1] + dp[i - 2];
+        }
+        return dp[number];
     }
 }
 

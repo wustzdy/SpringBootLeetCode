@@ -1,11 +1,19 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20220911;
 
-//最长公共字串
+//最长公共字串-字符串
 //给定两个字符串str1和str2,输出两个字符串的最长公共子串
 //题目保证str1和str2的最长公共子串存在且唯一。
 /*
 输入："1AB2345CD","12345EF"
 返回值： "2345"
+*/
+
+//最长公共字串-长度
+//给定两个字符串str1和str2,输出两个字符串的最长公共子串
+//题目保证str1和str2的最长公共子串存在且唯一。
+/*
+输入："1AB2345CD","12345EF"
+返回值： 4
 */
 public class LongCommonSubStr {
     private static final String EMPTY = "";

@@ -124,6 +124,7 @@ public class isPailHuiWen {
 // 那么接下来可以从头开始逆序一半的元素，或者从slow开始逆序一半的元素，都可以。
     //standard
     public static boolean isPalindrome(ListNode head) {
+        // 1 2 3 3 2 1
         // 要实现 O(n) 的时间复杂度和 O(1) 的空间复杂度，需要翻转后半部分
         if (head == null || head.next == null) {
             return true;

@@ -3,11 +3,11 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 //判断链表是否有环
 public class hasCycle {
     public static void main(String[] args) {
-        ListNode node5 = new ListNode(5, null);
-        ListNode node4 = new ListNode(4, node5);
-        ListNode node3 = new ListNode(3, node4);
+        ListNode node4 = new ListNode(-4, null);
+        ListNode node3 = new ListNode(0, node4);
         ListNode node2 = new ListNode(2, node3);
-        ListNode oldLode = new ListNode(1, node2);
+        ListNode oldLode = new ListNode(3, node2);
+        node4.next = node2;
         System.out.println(oldLode);
 
         boolean result = hasCycle(oldLode);
@@ -41,7 +41,7 @@ public class hasCycle {
         }
 
 
-        @Override
+        /*@Override
         public String toString() {
             StringBuilder sb = new StringBuilder(64);
             sb.append("[");
@@ -55,6 +55,6 @@ public class hasCycle {
             }
             sb.append("]");
             return sb.toString();
-        }
+        }*/
     }
 }

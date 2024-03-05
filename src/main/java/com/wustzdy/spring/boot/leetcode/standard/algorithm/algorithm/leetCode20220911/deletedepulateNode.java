@@ -18,11 +18,11 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
  * */
 public class deletedepulateNode {
     public static void main(String[] args) {
-        ListNode node7 = new ListNode(5, null);
-        ListNode node6 = new ListNode(4, node7);
-        ListNode node5 = new ListNode(4, node6);
-        ListNode node4 = new ListNode(3, node5);
-        ListNode node3 = new ListNode(3, node4);
+//        ListNode node7 = new ListNode(5, null);
+//        ListNode node6 = new ListNode(4, node7);
+//        ListNode node5 = new ListNode(4, node6);
+//        ListNode node4 = new ListNode(3, node5);
+        ListNode node3 = new ListNode(2, null);
         ListNode node2 = new ListNode(2, node3);
         ListNode oldLode = new ListNode(1, node2);
         System.out.println("初始链表:" + oldLode);

@@ -24,6 +24,8 @@ public class MergeListNode {
     }
 
     private static ListNode mergeListNode1(ListNode pHead1, ListNode pHead2) {
+        //pHead1:1 3
+        //pHead2:2 4
         ListNode dummy = new ListNode(0);
         ListNode cur = dummy;
         while (pHead1 != null && pHead2 != null) {

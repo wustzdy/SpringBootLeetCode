@@ -4,6 +4,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 //给出一个升序排序的链表，删除链表中的所有重复出现的元素，只保留原链表中只出现一次的元素。
 //输入：{1,2,2}  返回值：{1}
 //输入：{1,2,3,3,4,4,5}  返回值：{1,2,5}
+
 /**
  * 由于给定的链表是排好序的，因此重复的元素在链表中出现的位置是连续的，因此我们只需要对链表进行一次遍历，
  * 就可以删除重复的元素。由于链表的头节点可能会被删除，因此我们需要额外使用一个哑节点（dummy node）指向链表的头节点。
@@ -15,7 +16,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
  * 如果当前 cur.next 与 cur.next.next 对应的元素不相同，那么说明链表中只有一个元素值为 cur.next 的节点，
  * 那么我们就可以将cur 指向cur.next。
  * 当遍历完整个链表之后，我们返回链表的的哑节点的下一个节点dummy.next 即可。
- * */
+ */
 public class deletedepulateNode {
     public static void main(String[] args) {
 //        ListNode node7 = new ListNode(5, null);
@@ -33,11 +34,18 @@ public class deletedepulateNode {
     }
 
     private static ListNode deleteDuplicatedNode(ListNode head) {
+        //0 1 1 2
         if (head == null) {
             return null;
         }
-        ListNode dummy = new ListNode(0, head);
-        ListNode cur = dummy;
+//        ListNode dummy = new ListNode(0, head);
+//        ListNode cur = dummy;
+
+        //和下面三句等价
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode cur=dummy;
+
         while (cur.next != null && cur.next.next != null) {
             if (cur.next.val == cur.next.next.val) {
                 int x = cur.next.val;
@@ -58,6 +66,10 @@ public class deletedepulateNode {
         public ListNode(int val, ListNode next) {
             this.val = val;
             this.next = next;
+        }
+
+        public ListNode(int val) {
+            this.val = val;
         }
 
         @Override

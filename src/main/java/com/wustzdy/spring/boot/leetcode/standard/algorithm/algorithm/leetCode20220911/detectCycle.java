@@ -4,14 +4,17 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 //https://zhuanlan.zhihu.com/p/361049436?utm_id=0
 public class detectCycle {
     public static void main(String[] args) {
-        ListNode node4 = new ListNode(-4, null);
-        ListNode node3 = new ListNode(0, node4);
+        ListNode node5 = new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
+        ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
-        ListNode oldLode = new ListNode(3, node2);
+        ListNode oldLode = new ListNode(1, node2);
+
+        node5.next = node3;
         System.out.println(oldLode);
 
         ListNode resultNode = detectCycle2(oldLode);
-        System.out.println(resultNode);
+        System.out.println(resultNode.val); //3
     }
 
     private static ListNode detectCycleListNode(ListNode head) {
@@ -87,20 +90,20 @@ public class detectCycle {
         }
 
 
-        @Override
-        public String toString() {
-            StringBuilder sb = new StringBuilder(64);
-            sb.append("[");
-            ListNode p = this;
-            while (p != null) {
-                sb.append(p.val);
-                if (p.next != null) {
-                    sb.append(",");
-                }
-                p = p.next;
-            }
-            sb.append("]");
-            return sb.toString();
-        }
+//        @Override
+//        public String toString() {
+//            StringBuilder sb = new StringBuilder(64);
+//            sb.append("[");
+//            ListNode p = this;
+//            while (p != null) {
+//                sb.append(p.val);
+//                if (p.next != null) {
+//                    sb.append(",");
+//                }
+//                p = p.next;
+//            }
+//            sb.append("]");
+//            return sb.toString();
+//        }
     }
 }

@@ -41,7 +41,7 @@ public class KNodeSolution {
             fast = fast.next;
             slow = slow.next;
         }
-        return slow;
+        return slow.next;
     }
     public static ListNode FindKthToTail1(ListNode pHead, int k) {
         int n = 0;

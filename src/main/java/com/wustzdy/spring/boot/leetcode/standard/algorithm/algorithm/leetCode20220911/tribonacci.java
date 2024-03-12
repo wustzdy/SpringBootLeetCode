@@ -3,7 +3,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
 //斐波拉契额数列
 public class tribonacci {
     public static void main(String[] args) {
-        int result = dynamicInt2(4);
+        int result = Fibonacci(10);
         System.out.println("result:" + result);
 
 

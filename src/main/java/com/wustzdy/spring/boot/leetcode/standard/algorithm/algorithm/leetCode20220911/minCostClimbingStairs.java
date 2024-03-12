@@ -36,14 +36,18 @@ dp数组如何初始化
 看一下递归公式，dp[i]由dp[i - 1]，dp[i - 2]推出，既然初始化所有的dp[i]是不可能的，
 * 那么只初始化dp[0]和dp[1]就够了，其他的最终都是dp[0]dp[1]推出。
 * */
+//https://blog.csdn.net/qq_68288689/article/details/131341822
+//https://blog.csdn.net/qq_69369227/article/details/131528779?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-9-131528779-blog-127724999.235^v43^pc_blog_bottom_relevance_base3&spm=1001.2101.3001.4242.6&utm_relevant_index=12
 public class minCostClimbingStairs {
     public static void main(String[] args) {
-        int[] cost = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+//        int[] cost = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+        int[] cost = new int[]{1, 100, 1};
         int result = minCostClimbingStairs(cost);
         System.out.println("" + result);
     }
 
     public static int minCostClimbingStairs(int[] cost) {
+        //1, 100, 1
         int len = cost.length;
         int[] dp = new int[len + 1];
 

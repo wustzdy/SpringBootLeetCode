@@ -25,8 +25,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootApplication
-@EnableAsync
-@EnableScheduling
+@EnableAsync(proxyTargetClass = true)
+//@EnableScheduling
 @Slf4j
 public class SpringBootMavenStandardApplication {
     private AtomicInteger number = new AtomicInteger();
@@ -59,7 +59,7 @@ public class SpringBootMavenStandardApplication {
         }
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void test111() {
         Resource resource = resourceLoader.getResource(webhookJsonFile);
         try {

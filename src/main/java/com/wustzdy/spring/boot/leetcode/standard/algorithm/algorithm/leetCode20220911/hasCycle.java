@@ -14,7 +14,7 @@ public class hasCycle {
         System.out.println(result);
     }
 
-    public static boolean hasCycle(ListNode head) {
+    public static boolean hasCycle(ListNode head) {// 3 2 0 -4 2
         if (head == null) return false;
         ListNode slow = head;
         ListNode fast = head;

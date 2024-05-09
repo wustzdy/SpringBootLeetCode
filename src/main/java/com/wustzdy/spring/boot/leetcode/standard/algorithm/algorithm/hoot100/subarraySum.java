@@ -1,5 +1,8 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20230723;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
 
+//和为K的子数组
+// 1, 1, 1
+// k=2
 public class subarraySum {
     public static void main(String[] args) {
         int[] nums = new int[]{1, 1, 1};

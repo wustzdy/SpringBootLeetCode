@@ -9,7 +9,7 @@ public class Ksum {
         int[] result = twoSum(array, 2);
 
 
-        System.out.println("result:" + result);
+        System.out.println("result:" + result.length);
 
 
     }

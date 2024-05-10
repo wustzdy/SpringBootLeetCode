@@ -17,7 +17,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.leetCode20
  */
 public class uniquePaths {
     public static void main(String[] args) {
-        int total = uniquePathsFun(7, 3);
+        int total = uniquePathsFun(3, 2);
         System.out.println("total:" + total);
     }
 

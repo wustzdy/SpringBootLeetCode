@@ -24,6 +24,7 @@ public class permute1 {
 
     public static List<List<Integer>> result = new ArrayList<>();// 存放符合条件结果的集合
     public static List<Integer> path = new ArrayList<>();// 用来存放符合条件结果
+//    public static LinkedList<Integer> path = new LinkedList<>();// 用来存放符合条件结果
     public static boolean[] used;
 
     public static List<List<Integer>> permute(int[] nums) {
@@ -48,6 +49,7 @@ public class permute1 {
             path.add(nums[i]);
             backtracking(nums);
             path.remove(path.size() - 1);
+//            path.removeLast();
             used[i] = false;
         }
     }

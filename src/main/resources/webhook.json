@@ -1,0 +1,41 @@
+{
+  "version":"4",
+  "groupKey":"{}:{alertname=\"memory_usage_rate_warning\", severity=\"major\"}",
+  "receiver":"webhook",
+  "status":"firing",
+  "alerts":[
+    {
+      "status":"firing",
+      "labels":{
+        "alertgroup":"node",
+        "alertname":"memory_usage_rate_warning",
+        "instance":"10.142.94.19:9100",
+        "severity":"major"
+      },
+      "annotations":{
+        "description":"cpu overload for 15 min 0.05815972222266652",
+        "value":"0.05815972222266652"
+      },
+      "startsAt":"2023-05-24T11:56:07.221664103Z",
+      "endsAt":"0001-01-01T00:00:00Z",
+      "generatorURL":"http://vmalert-spe-85b79459fc-xm7p5:8080/api/v1/1013612175511790069/6151226998575564619/status",
+      "fingerprint":"e993a4c769190a02"
+    }
+  ],
+  "groupLabels":{
+    "alertname":"memory_usage_rate_warning",
+    "severity":"major"
+  },
+  "commonLabels":{
+    "alertgroup":"node",
+    "alertname":"memory_usage_rate_warning",
+    "instance":"10.142.94.18:2000",
+    "severity":"major"
+  },
+  "commonAnnotations":{
+    "description":"cpu overload for 15 min 0.05815972222266652",
+    "value":"0.05815972222266652"
+  },
+  "externalURL":"http://vmalertmanager-spe-0:9093",
+  "alertTime":"2023-05-24T12:00:37.231904746Z"
+}

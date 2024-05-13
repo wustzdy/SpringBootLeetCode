@@ -6,10 +6,10 @@ import java.util.Map;
 public class Ksum {
     public static void main(String[] args) {
         int[] array = new int[]{1, 1,2, 1,};
-        int result = numberOfSubarrays(array, 2);
+        int[] result = twoSum(array, 2);
 
 
-        System.out.println("result:" + result);
+        System.out.println("result:" + result.length);
 
 
     }

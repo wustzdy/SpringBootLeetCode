@@ -1,8 +1,6 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.array;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Map;
 
 //LeetCode 题解 | 1. 两数之和
 public class twoSumTotal {
@@ -15,7 +13,7 @@ public class twoSumTotal {
     }
 
     private static int[] twoSum1(int[] array, int target) {
-        for (int i = 0; i < array.length - 1; i++) {
+        for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] + array[j] == target) {
                     return new int[]{i, j};

@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.window;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -95,6 +95,13 @@ public class LengthOfLongestSubstring {
         return maxLength;
     }
     //https://leetcode.cn/problems/longest-substring-without-repeating-characters/solution/ren-zhe-suan-fa-7fen-zhong-bai-ban-dai-m-0u35/
+
+    /**
+     * 什么是滑动窗口？
+     * 其实就是一个队列,比如例题中的 abcabcbb，进入这个队列（窗口）为 abc 满足题目要求，当再进入 a，队列变成了 abca，这时候不满足要求。所以，我们要移动这个队列！
+     * 如何移动？
+     * 我们只要把队列的左边的元素移出就行了，直到满足题目要求！
+     */
     public static int lengthOfLongestSubstring4(String s) {
         int maxLength = 0;//abcabcbb
         int left = 0;

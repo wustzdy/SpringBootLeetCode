@@ -1,10 +1,10 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.twopoint;
 
 //https://leetcode.cn/problems/container-with-most-water/solutions/11491/container-with-most-water-shuang-zhi-zhen-fa-yi-do/?envType=study-plan-v2&envId=top-100-liked// LeetCode第11题 盛最多水的容器
 public class maxArea {
     public static void main(String[] args) {
         int[] heights = new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7};
-        int maxarea = maxArea2(heights);
+        int maxarea = maxArea3(heights);
         System.out.println("maxarea:" + maxarea);
     }
 
@@ -33,6 +33,7 @@ public class maxArea {
     //https://leetcode.cn/problems/container-with-most-water/solutions/11491/container-with-most-water-shuang-zhi-zhen-fa-yi-do/
 
     public static int maxArea3(int[] height) {
+        //[1,8,6,2,5,4,8,3,7]
         int maxArea = 0;
         int i = 0;
         int j = height.length-1;

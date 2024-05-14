@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.twopoint;
 
 //定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
 //请注意 ，必须在不复制数组的情况下原地对数组进行操作。
@@ -9,7 +9,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
 public class moveZeroes {
     public static void main(String[] args) {
         int[] nums = new int[]{0, 1, 0, 3, 12};
-        int[] ints = moveZeroes(nums);
+        int[] ints = moveZeroes1(nums);
         for (int i : ints) {
             System.out.print(i + ",");
         }
@@ -28,6 +28,19 @@ public class moveZeroes {
                 nums[i] = nums[j];
                 nums[j++] = tmp;
             }
+        }
+        return nums;
+    }
+
+    public static int[] moveZeroes1(int[] nums) {
+        int index = 0;
+        for (int num : nums) {
+            if (num != 0) {
+                nums[index++] = num;
+            }
+        }
+        for (int i = index; i < nums.length; i++) {
+            nums[i] = 0;
         }
         return nums;
     }

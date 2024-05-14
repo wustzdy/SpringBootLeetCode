@@ -1,11 +1,11 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.commonArray;
 
 ////最大子序列和
 public class maxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
         int max = maxSubArray(nums);
-        System.out.println("max: " + max);
+        System.out.println("max: " + max);//6
     }
 
     /* 思路

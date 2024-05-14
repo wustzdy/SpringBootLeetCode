@@ -19,15 +19,15 @@ public class StringLeftRetote2 {
         int array[] = {1, 2, 3, 4, 5};
         int p = 3;
         //1,
-//        reverse(array, 0, array.length - 1, p);////逆置前P
+//        reverse(hash, 0, hash.length - 1, p);////逆置前P
 
         //2,
-//        move2(array, array.length, p);
+//        move2(hash, hash.length, p);
 
         //3,
-//        moveP(array, array.length, p);
+//        moveP(hash, hash.length, p);
         //3,
-//        moveP1(array, 3, array.length);
+//        moveP1(hash, 3, hash.length);
         //3,
         movep2(array, p);
 

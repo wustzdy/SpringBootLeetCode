@@ -6,22 +6,13 @@ import java.util.List;
 public class permute {
 
     public static void main(String[] args) {
-//        int[] nums=new int[]{1,2};
-//        List<List<Integer>> permute = permute(nums);
-//        System.out.print("permute:"+permute);
+        int[] nums=new int[]{1,2};
+        List<List<Integer>> permute = permute(nums);
+        System.out.print("permute:"+permute);
 
 
 
 
-    }
-    public static void permute1(int[] nums){
-        //暴力
-        int n = 4;
-        for (int i = 1; i <= n; i++) {
-            for (int j = i + 1; j <= n; j++) {
-                System.out.println(i+""+j);
-            }
-        }
     }
 
 

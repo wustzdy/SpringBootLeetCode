@@ -1,6 +1,7 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.commonArray;
 
 ////最大子序列和
+//https://leetcode.cn/problems/maximum-subarray/solutions/1/53-zui-da-zi-shu-zu-he-dong-tai-gui-hua-bvkq9/?envType=study-plan-v2&envId=top-100-liked
 public class maxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};

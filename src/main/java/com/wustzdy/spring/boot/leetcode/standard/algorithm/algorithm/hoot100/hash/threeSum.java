@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.hash;
 
 import java.util.ArrayList;
 import java.util.Arrays;

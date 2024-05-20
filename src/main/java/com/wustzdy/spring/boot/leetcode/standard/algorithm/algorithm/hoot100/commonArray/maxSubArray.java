@@ -5,7 +5,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.co
 public class maxSubArray {
     public static void main(String[] args) {
         int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int max = maxSubArray(nums);
+        int max = maxSubArray2(nums);
         System.out.println("max: " + max);//6
     }
 
@@ -39,5 +39,24 @@ public class maxSubArray {
             maxAns = Math.max(maxAns, pre);
         }
         return maxAns;
+    }
+
+    //https://www.bilibili.com/video/BV1aY4y1Z7ya/?spm_id_from=333.788&vd_source=5363405f0e14a0e8f06bcae41548f41e
+    public static int maxSubArray2(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int sum = Integer.MIN_VALUE;
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            count += nums[i];
+            if (count > sum) {
+                sum = count;
+            }
+            if (count <= 0) {
+                count = 0; // 相当于重置最大子序起始位置，因为遇到负数一定是拉低总和
+            }
+        }
+        return sum;
     }
 }

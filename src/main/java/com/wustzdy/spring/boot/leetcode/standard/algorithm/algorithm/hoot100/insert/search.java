@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.insert;
 
 /**
  * 搜索排序数组

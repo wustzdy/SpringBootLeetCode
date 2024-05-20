@@ -43,4 +43,21 @@ public class maxProfit {
         }
         return dp[len - 1][0];
     }
+    //贪心
+    //https://www.bilibili.com/video/BV1ev4y1C7na/?spm_id_from=333.788&vd_source=5363405f0e14a0e8f06bcae41548f41e
+
+    /**
+     * 股票价格：7   1  5  10  3  6  4
+     * 每天利润     -6  4  5  -7  3  -2
+     * 贪心 每天只收集正利润： 4+5+3
+     */
+    public int maxProfit3(int[] prices) {
+        int result = 0;
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] - prices[i - 1] > 0) {
+                result += prices[i] - prices[i - 1];
+            }
+        }
+        return result;
+    }
 }

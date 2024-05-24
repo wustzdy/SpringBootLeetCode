@@ -36,7 +36,7 @@ public class productExceptSelf {
         int[] L = new int[length];//1 1 2 6
         int[] R = new int[length];//24 12 4 1
 
-        int[] answer = new int[length];
+        int[] answer = new int[length];//24,12,8,6
 
         // L[i] 为索引 i 左侧所有元素的乘积
         // 对于索引为 '0' 的元素，因为左侧没有元素，所以 L[0] = 1

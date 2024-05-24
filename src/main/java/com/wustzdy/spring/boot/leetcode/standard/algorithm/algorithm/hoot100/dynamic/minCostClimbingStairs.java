@@ -41,14 +41,17 @@ dp数组如何初始化
 public class minCostClimbingStairs {
     public static void main(String[] args) {
 //        int[] cost = new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
-        int[] cost = new int[]{1, 100, 1};
+        int[] cost = new int[]{2, 5, 20};
         int result = minCostClimbingStairs(cost);
         System.out.println("" + result);
     }
 
     public static int minCostClimbingStairs(int[] cost) {
-        //1, 100, 1
-        int len = cost.length;
+        //dp 到达第i台阶所花费的最少体力为dp[i]。如果要向上跳，那么需要加上本身的花费const
+        //2 5 20
+        //0 0 0 0
+        //0 0 2 5
+        int len = cost.length;//
         int[] dp = new int[len + 1];
 
         // 从下标为 0 或下标为 1 的台阶开始，因此支付费用为0
@@ -59,7 +62,6 @@ public class minCostClimbingStairs {
         for (int i = 2; i <= len; i++) {
             dp[i] = Math.min(dp[i - 1] + cost[i - 1], dp[i - 2] + cost[i - 2]);
         }
-
         return dp[len];
     }
 }

@@ -15,12 +15,16 @@ import java.util.Arrays;
  */
 /*
 解题方法
-首先，我们定义一个一维数组 dp，其中 dp[i] 表示凑齐金额 i 所需的最少硬币数量。我们将数组初始化为 amount + 1，因为凑齐 amount 最多需要 amount 枚1元硬币。接下来，我们从1遍历到目标金额 amount，对于每个金额 i，再遍历可用的硬币面额 coins[j]。如果 i >= coins[j]，则更新 dp[i] = min(dp[i], dp[i - coins[j]] + 1)。最终返回 dp[amount] 大于 amount 的话返回 -1，否则返回 dp[amount]。
+首先，我们定义一个一维数组 dp，其中 dp[i] 表示凑齐金额 i 所需的最少硬币数量。我们将数组初始化为 amount + 1，
+因为凑齐 amount 最多需要 amount 枚1元硬币。接下来，我们从1遍历到目标金额 amount，
+对于每个金额 i，再遍历可用的硬币面额 coins[j]。如果 i >= coins[j]，则更新 dp[i] = min(dp[i], dp[i - coins[j]] + 1)。
+最终返回 dp[amount] 大于 amount 的话返回 -1，否则返回 dp[amount]。
 
 重点理解
 dp[i] = Math.min(dp[i], dp[i - coin] + 1);
 这行代码中，dp 数组是一个动态规划数组，用于记录凑成金额 i 所需的最少硬币数量。dp[i] 表示凑成金额 i 的最小硬币数量。
-对于每一个遍历到的硬币面额 coin，我们检查是否可以从之前已经计算过的较小金额 i - coin 继续凑成当前金额 i。如果可以，即 i >= coin，那么我们只需要在原来凑成 i - coin 的基础上再增加一枚当前硬币即可，即原本的数量 dp[i - coin] 加上 1。
+对于每一个遍历到的硬币面额 coin，我们检查是否可以从之前已经计算过的较小金额 i - coin 继续凑成当前金额 i。如果可以，即 i >= coin，
+那么我们只需要在原来凑成 i - coin 的基础上再增加一枚当前硬币即可，即原本的数量 dp[i - coin] 加上 1。
 
 然后我们需要将这个新的可能结果与之前已知的最少硬币数 dp[i] 进行比较，取其中的最小值赋给 dp[i]。这样，经过所有硬币面额的迭代后，dp[i] 中记录的就是凑成金额 i 的最少硬币数量。
 
@@ -32,8 +36,8 @@ dp[i] = Math.min(dp[i], dp[i - coin] + 1);
 public class coinChange {
     public static void main(String[] args) {
         int[] coins = new int[]{1, 2, 5};
-        int amount = 11;
-        int result = coinChange2(coins, amount);
+        int amount = 5;
+        int result = coinChange1(coins, amount);
         System.out.print("result:" + result);
     }
 
@@ -74,7 +78,8 @@ public class coinChange {
         // 如果最终目标金额的最少硬币数仍为初始值（无法凑成目标金额），返回-1，否则返回最少硬币数。
         return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
-    public static int coinChange2(int[] coins, int amount) {
+    public static int coinChange2(int[] coins, int amount) {//125
+        //dp[j]：凑足总额为j所需钱币的最少个数为dp[j]
         int[] dp = new int[amount + 1];
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;
@@ -85,4 +90,24 @@ public class coinChange {
         }
         return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
+//    不装i即需要到前i-1个里面选，也就是前i-1行j背包容量下的最大价值，同理，由于前面都已经是最优解，直接查表a【i-1】【j】就是不装i条件下的最大价值
 }
+
+
+/**
+ * 另一种实现
+ * memo[i 有两种实现的方式，去两者的最小值
+ *
+ * 包含当前的 coins[i]，那么剩余钱就是 i−coins[i]，这种操作要兑换的硬币数是memo[i−coins[j]]+1
+ *
+ * 不包含，要兑换的硬币数是 memo[i]
+ *
+ * Java
+ *
+ *
+ * 作者：sugar
+ * 链接：https://leetcode.cn/problems/coin-change/solutions/137661/javadi-gui-ji-yi-hua-sou-suo-dong-tai-gui-hua-by-s/
+ * 来源：力扣（LeetCode）
+ * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ *
+ * */

@@ -7,7 +7,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.dy
 //        12
 public class minPathSum {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 3, 5, 9}, {8, 1, 3, 4}, {5, 0, 6, 1}};
+//        int[][] matrix = {{1, 3, 5, 9}, {8, 1, 3, 4}, {5, 0, 6, 1}};
+        int[][] matrix = {{1, 3, 1}, {1,5,1}, {4,2,1}};
         int sum = minPathSum1(matrix);
         System.out.println("sum:" + sum);
     }
@@ -35,6 +36,10 @@ public class minPathSum {
     }
 
     //https://www.bilibili.com/video/BV1yN411d7Pr/
+//    给定数组   dp数组
+//         *  1 3 1     1 4 5
+//         *  1 5 1     2 7 6
+//         *  4 2 1     6 8 7
     public static int minPathSum1(int[][] matrix) {
         // write code here
         int n = matrix.length; //matrix的行

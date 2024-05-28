@@ -23,7 +23,7 @@ public class findLengthOfLCIS {
 
     public static int findLengthOfLCIS(int[] nums) {
         int[] dp = new int[nums.length];
-        Arrays.fill(dp, nums.length);
+        Arrays.fill(dp,1);
 
         int res = 1;
         for (int i = 0; i < nums.length - 1; i++) {

@@ -22,6 +22,8 @@ public class findLengthOfLCIS {
     }
 
     public static int findLengthOfLCIS(int[] nums) {
+        //1,3,5,4,7
+        //1,2,3,1,2
         int[] dp = new int[nums.length];
         Arrays.fill(dp,1);
 

@@ -2,6 +2,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.st
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.Stack;
 
 //有效的括号
 //给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
@@ -43,6 +44,22 @@ public class isValidKuohao {
             } else if (i == '{') {
                 stack.push('}');
             } else if (stack.isEmpty() || stack.pop() != i) {
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+
+    public static boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (Character c : s.toCharArray()) {
+            if (c == '(') {
+                stack.push(')');
+            } else if (c == '[') {
+                stack.push(']');
+            } else if (c == '{') {
+                stack.push('}');
+            } else if (stack.isEmpty() || stack.pop() != c) {
                 return false;
             }
         }

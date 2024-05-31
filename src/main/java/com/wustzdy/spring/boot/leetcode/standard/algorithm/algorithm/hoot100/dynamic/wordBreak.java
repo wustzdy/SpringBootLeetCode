@@ -37,8 +37,8 @@ public class wordBreak {
         //前n个字符能否拆分 s = "leetcode", wordDict = ["leet", "code"]
         boolean[] dp = new boolean[s.length() + 1];
         dp[0] = true;
-        for (int i = 0; i < s.length(); i++) {
-            for (int j = i + 1; j <= s.length(); j++) {
+        for (int i = 0; i < s.length() + 1; i++) {
+            for (int j = i + 1; j < s.length() + 1; j++) {
                 if (dp[i] && set.contains(s.substring(i, j))) {
                     dp[j] = true;
                 }

@@ -1,10 +1,13 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.stack;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class dailyTemperatures {
     public static void main(String[] args) {
 //        int[] T = new int[]{30, 40, 50, 60};
         int[] T = new int[]{3, 74, 75, 71, 69, 72, 76, 73};
-        int[] ints = dailyTemperatures2(T);
+        int[] ints = dailyTemperatures3(T);
         for (int i : ints) {
             System.out.print(i + ",");
         }
@@ -71,5 +74,37 @@ public class dailyTemperatures {
             }
         }
         return result;
+    }
+
+    /**
+     *
+     * 这里我们可以采用一个栈，来记录之前的温度（记录的是低温），然后遍历数组，发现如果今天的温度大于栈顶存储的温度，
+     * 则将今天温度的数组下标和栈顶的相减获得天数差值，然后存入answer数组即可。
+     * @param temperatures
+     * @return
+     */
+    public static int[] dailyTemperatures3(int[] temperatures) {
+        //3, 74, 75, 71, 69, 72, 76, 73
+        // 记录数组长度
+        int length = temperatures.length;
+        // 准备需要返回的数组
+        int[] answer = new int[length];
+        // 准备一个栈来存储
+        Deque<Integer> stack = new LinkedList<>();
+
+        for (int i = 0; i < length; i++) {
+            // 获取每次的温度
+            int temperature = temperatures[i];
+            // 若栈不为空而且，当前温度大于栈顶的温度（这里会一直查找）弹出栈，获取下标差值
+            while (!stack.isEmpty() && temperature > temperatures[stack.peek()]) {
+                // 获取栈顶元素
+                int preIndex = stack.pop();
+                // 取得下标差值，写入answer数组
+                answer[preIndex] = i - preIndex;
+            }
+            // 存入栈
+            stack.push(i);
+        }
+        return answer;
     }
 }

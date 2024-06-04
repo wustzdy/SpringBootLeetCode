@@ -16,6 +16,15 @@ import java.util.stream.IntStream;
 输入: nums = [1], k = 1
 输出: [1]
 */
+
+/**
+ * 借助 哈希表 来建立数字和其出现次数的映射，遍历一遍数组统计元素的频率
+ * 维护一个元素数目为 k 的最小堆
+ * 每次都将新的元素与堆顶元素（堆中频率最小的元素）进行比较
+ * 如果新的元素的频率比堆顶端的元素大，则弹出堆顶端的元素，将新的元素添加进堆中
+ * 最终，堆中的 k 个元素即为前 k 个高频元素
+ * 原文链接：https://blog.csdn.net/cckluv/article/details/114003735
+ */
 public class topKFrequent {
     public static void main(String[] args) {
         int[] array = new int[]{1, 1, 1, 2, 2, 3};
@@ -58,6 +67,7 @@ public class topKFrequent {
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
+        // 1=3 2=2 3=1
         // // 使用最小堆来保存频率前k高的元素（使用自定义比较器）
         PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> frequencyMap.get(a) - frequencyMap.get(b));
         // 遍历HashMap，将元素加入最小堆中

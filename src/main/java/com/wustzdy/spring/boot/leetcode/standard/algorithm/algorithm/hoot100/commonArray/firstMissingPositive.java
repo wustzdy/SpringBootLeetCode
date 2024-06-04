@@ -30,12 +30,14 @@ public class firstMissingPositive {
     }
 
     public static int firstMissingPositive(int[] nums) {
+        //3,4,-1,1
         int len = nums.length;
 
         Set<Integer> hashSet = new HashSet<>();
         for (int num : nums) {
             hashSet.add(num);
         }
+        // -1 1 3 4
 
         for (int i = 1; i <= len; i++) {
             if (!hashSet.contains(i)) {

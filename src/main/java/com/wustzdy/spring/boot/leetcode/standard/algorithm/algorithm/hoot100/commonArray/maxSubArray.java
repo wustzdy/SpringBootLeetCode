@@ -4,8 +4,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.co
 //https://leetcode.cn/problems/maximum-subarray/solutions/1/53-zui-da-zi-shu-zu-he-dong-tai-gui-hua-bvkq9/?envType=study-plan-v2&envId=top-100-liked
 public class maxSubArray {
     public static void main(String[] args) {
-        int[] nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int max = maxSubArray2(nums);
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        int max = maxSubArray4(nums);
         System.out.println("max: " + max);//6
     }
 
@@ -17,6 +17,7 @@ public class maxSubArray {
     每次比较 sum 和 max的大小，将最大值置为max，遍历结束返回结果*/
     //动态规划
     //若前一个元素大于0，则将其加入到当前元素上
+    //连续子数组 [4,-1,2,1] 的和最大，为 6 。
     public static int maxSubArray(int[] arr) {
         //-2, 1, -3, 4, -1, 2, 1, -5, 4
         int max = arr[0];
@@ -58,5 +59,29 @@ public class maxSubArray {
             }
         }
         return sum;
+    }
+
+    public int maxSubArray3(int[] nums) {
+        int res = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            nums[i] += Math.max(nums[i - 1], 0);
+            res = Math.max(res, nums[i]);
+        }
+        return res;
+    }
+
+    //动态规划 standard
+    public static int maxSubArray4(int[] nums) {
+        int[] dp = new int[nums.length];
+        int res = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if (dp[i - 1] <= 0) {
+                dp[i] = nums[i];
+            } else {
+                dp[i] = dp[i - 1] + nums[i];
+            }
+            res = Math.max(res, dp[i]);
+        }
+        return res;
     }
 }

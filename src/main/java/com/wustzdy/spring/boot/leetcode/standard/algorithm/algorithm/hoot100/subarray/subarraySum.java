@@ -66,6 +66,8 @@ public class subarraySum {
         for (int i = 0; i < length; i++) {// 计算前缀和
             preSum[i + 1] = preSum[i] + nums[i];
         }
+        //preSum: 0 1 3 6
+        //下标：   0 1 2 3
 
         int count = 0;// 统计和为 k 的子数组
         // 枚举所有子数组

@@ -9,6 +9,12 @@ public class test {
         int[] array = new int[]{100, 4, 200, 1, 2, 3};
         int result = sumTest(array);
         System.out.println("result:" + result);
+
+        for (int num : array) {
+            if (num == 4)
+                break;
+            System.out.println("num:" + num);
+        }
     }
 
     private static int sumTest(int[] array) {

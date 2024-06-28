@@ -23,30 +23,34 @@ public class maxArea {
     // res =max(res,s(0,8))=8
     public static int maxArea2(int[] height) {
         int i = 0, j = height.length - 1, res = 0;
-        while(i < j) {
+        while (i < j) {
             res = height[i] < height[j] ?
-                    Math.max(res, (j - i) * height[i++]):
+                    Math.max(res, (j - i) * height[i++]) :
                     Math.max(res, (j - i) * height[j--]);
         }
         return res;
     }
     //https://leetcode.cn/problems/container-with-most-water/solutions/11491/container-with-most-water-shuang-zhi-zhen-fa-yi-do/
 
+    //第三种
+    //[0,1,2,3,4,5,6,7,8] length=9
+    //[1,8,6,2,5,4,8,3,7]
+    //s(0,8)=min(1,7)*(8-0)=8;
+    // res =max(res,s(0,8))=8
     public static int maxArea3(int[] height) {
         //[1,8,6,2,5,4,8,3,7]
         int maxArea = 0;
         int i = 0;
-        int j = height.length-1;
+        int j = height.length - 1;//8
         while (i < j) {
             if (height[i] < height[j]) {
-                maxArea = Math.max(maxArea,(j - i) * height[i]);
+                maxArea = Math.max(maxArea, (j - i) * height[i]);
                 i++;
             } else {
-                maxArea = Math.max(maxArea,(j - i) * height[j]);
+                maxArea = Math.max(maxArea, (j - i) * height[j]);
                 j--;
             }
         }
         return maxArea;
-
     }
 }

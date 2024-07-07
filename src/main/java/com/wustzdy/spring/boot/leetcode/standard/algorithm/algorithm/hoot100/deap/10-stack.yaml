@@ -1,0 +1,194 @@
+//有效的括号
+//给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+/*
+输入：s = "()"
+输出：true
+
+输入：s = "()[]{}"
+输出：true
+
+输入：s = "(]"
+输出：false
+*/
+
+/*
+具体思路是遍历字符串中的每个字符，当遇到左括号时，将其对应的右括号入栈；当遇到右括号时，与栈顶元素比较，如果匹配则将栈顶元素出栈，否则返回 false。
+
+最后检查栈是否为空，如果为空则表示字符串有效，否则表示字符串无效。
+
+作者：GoAhead
+链接：https://leetcode.cn/problems/valid-parentheses/solutions/2751506/pythonjava-you-xiao-de-gua-hao-by-goahea-x03w/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+*/
+public static boolean isValid(String s) {
+    //s = "()[]{}"
+    Stack<Character> stack = new Stack<>();
+    for (Character c : s.toCharArray()) {
+        if (c == '(') {
+            stack.push(')');
+        } else if (c == '[') {
+            stack.push(']');
+        } else if (c == '{') {
+            stack.push('}');
+        } else if (stack.isEmpty() || stack.pop() != c) {
+            return false;
+        }
+    }
+    return stack.isEmpty();
+}
+
+//每日温度
+//给定一个整数数组 temperatures ，表示每天的温度，返回一个数组 answer ，其中 answer[i] 是指对于第 i 天，下一个更高温度出现在几天后。如果气温在这之后都不会升高，请在该位置用 0 来代替。
+/**
+输入: temperatures = [73,74,75,71,69,72,76,73]
+输出: [1,1,4,2,1,1,0,0]
+
+输入: temperatures = [30,40,50,60]
+输出: [1,1,1,0]
+ */
+//暴力
+public static int[] dailyTemperatures(int[] T) {
+    //30,40,50,60
+    int length = T.length;
+    int[] result = new int[length];
+
+    for (int i = 0; i < length; i++) {
+        int current = T[i];
+        if (current < 1000) {
+            for (int j = i + 1; j < length; j++) {
+                if (T[j] > current) {
+                    result[i] = j - i;
+                    break;
+                }
+            }
+        }
+    }
+    return result;
+}
+public static int[] dailyTemperatures1(int[] T) {
+    ////30,40,50,60
+    int length = T.length;
+    int[] result = new int[length];
+
+    //从右向左遍历
+    for (int i = length - 2; i >= 0; i--) {
+        // j+= result[j]是利用已经有的结果进行跳跃
+        for (int j = i + 1; j < length; j += result[j]) {
+            if (T[j] > T[i]) {
+                result[i] = j - i;
+                break;
+            } else if (result[j] == 0) { //遇到0表示后面不会有更大的值，那当然当前值就应该也为0
+                result[i] = 0;
+                break;
+            }
+        }
+    }
+    return result;
+}
+
+//拆分代码
+public static int[] dailyTemperatures2(int[] T) {
+    ////30,40,50,60
+    int length = T.length;
+    int[] result = new int[length];
+
+    //从右向左遍历
+    for (int i = length - 2; i >= 0; i--) {
+        // j+= result[j]是利用已经有的结果进行跳跃
+        int j = i + 1;
+        while (j < length) {
+            if (T[j] > T[i]) {
+                result[i] = j - i;
+                break;
+            } else if (result[j] == 0) { //遇到0表示后面不会有更大的值，那当然当前值就应该也为0
+                result[i] = 0;
+                break;
+            }
+            j = j + result[j];
+        }
+    }
+    return result;
+}
+
+//使用栈比价容易理解
+/**
+ *
+ * 这里我们可以采用一个栈，来记录之前的温度（记录的是低温），然后遍历数组，发现如果今天的温度大于栈顶存储的温度，
+ * 则将今天温度的数组下标和栈顶的相减获得天数差值，然后存入answer数组即可。
+ * @param temperatures
+ * @return
+ */
+public static int[] dailyTemperatures3(int[] temperatures) {
+    //3, 74, 75, 71, 69, 72, 76, 73
+    // 记录数组长度
+    int length = temperatures.length;
+    // 准备需要返回的数组
+    int[] answer = new int[length];
+    // 准备一个栈来存储
+    Deque<Integer> stack = new LinkedList<>();
+
+    for (int i = 0; i < length; i++) {
+        // 获取每次的温度
+        int temperature = temperatures[i];
+        // 若栈不为空而且，当前温度大于栈顶的温度（这里会一直查找）弹出栈，获取下标差值
+        while (!stack.isEmpty() && temperature > temperatures[stack.peek()]) {
+            // 获取栈顶元素
+            int preIndex = stack.pop();
+            // 取得下标差值，写入answer数组
+            answer[preIndex] = i - preIndex;
+        }
+        // 存入栈
+        stack.push(i);
+    }
+    return answer;
+}
+/**
+ * 给定一个经过编码的字符串，返回它解码后的字符串。
+ * 编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+ * 示例 1：
+ * <p>
+ * 输入：s = "3[a]2[bc]"
+ * 输出："aaabcbc"
+ * 示例 2：
+ * <p>
+ * 输入：s = "3[a2[c]]"
+ * 输出："accaccacc"
+ */
+/**
+ * 如果当前的字符为数位，解析出一个数字（连续的多个数位）并进栈
+ * 如果当前的字符为字母或者左括号，直接进栈
+ * 如果当前的字符为右括号，开始出栈，一直到左括号出栈，出栈序列反转后拼接成一个字符串，此时取出栈顶的数字，
+ * 就是这个字符串应该出现的次数，我们根据这个次数和字符串构造出新的字符串并进栈
+ * 重复如上操作，最终将栈中的元素按照从栈底到栈顶的顺序拼接起来，就得到了答案。注意：这里可以用不定长数组来模拟栈操作，方便从栈底向栈顶遍历
+ * */
+public static String decodeString(String s) {
+    Deque<Integer> countStack = new ArrayDeque<>(); // 存储数字
+    Deque<String> stringStack = new ArrayDeque<>(); // 存储字符串
+    String currentString = ""; // 当前解码字符串
+    int k = 0; // 当前的倍数
+
+    for (char ch : s.toCharArray()) {
+        if (Character.isDigit(ch)) {
+            k = k * 10 + (ch - '0'); // 处理多位数  //c-'0'表示字符转换为数字
+        } else if (ch == '[') {
+            // 遇到 '['，将当前的字符串和数字推入各自的栈
+            countStack.push(k);
+            stringStack.push(currentString);
+            currentString = ""; // 重置当前字符串
+            k = 0; // 重置倍数
+        } else if (ch == ']') {
+            // 遇到 ']'，解码
+            StringBuilder temp = new StringBuilder(stringStack.pop());
+            int repeatTimes = countStack.pop();
+            for (int i = 0; i < repeatTimes; i++) {
+                temp.append(currentString); // 重复当前字符串
+            }
+            currentString = temp.toString(); // 更新当前字符串
+        } else {
+            // 如果是字母，直接加到当前字符串
+            currentString += ch;
+        }
+    }
+    return currentString;
+}

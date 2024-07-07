@@ -1,0 +1,49 @@
+//数组中第K个最大元素
+// 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+// 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+/*
+输入: [3,2,1,5,6,4], k = 2
+输出: 5
+
+输入: [3,2,3,1,2,4,5,5,6], k = 4
+输出: 4
+*/
+public int findKthLargest(int[] nums, int k) {
+    //1 2 3 4 5 6
+    Arrays.sort(nums);
+    return nums[nums.length - k];
+}
+
+//前K个高频元素
+//给你一个整数数组 nums 和一个整数 k ，请你返回其中出现频率前 k 高的元素。你可以按 任意顺序 返回答案。
+/**
+输入: nums = [1,1,1,2,2,3], k = 2
+输出: [1,2]
+
+输入: nums = [1], k = 1
+输出: [1]
+*/
+
+public static int[] topKFrequent1(int[] nums, int k) {
+    //// 统计每个数字出现的次数
+    Map<Integer, Integer> frequencyMap = new HashMap<>();
+    for (int num : nums) {
+        frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+    }
+    // // 使用最小堆来保存频率前k高的元素（使用自定义比较器）
+    PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> frequencyMap.get(a) - frequencyMap.get(b));
+    // 遍历HashMap，将元素加入最小堆中  
+    for (int num : frequencyMap.keySet()) {
+        minHeap.add(num);
+        if (minHeap.size() > k) {
+            minHeap.poll();
+        }
+    }
+
+    int[] result = new int[k];
+    for (int i = 0; i < k; i++) {
+        result[i] = minHeap.poll();
+    }
+
+    return result;
+}

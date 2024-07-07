@@ -23,7 +23,7 @@ public class InsertSortTest {
             }
             array[j + 1] = temp;
         }
-        /*for (int x : array) {
+        /*for (int x : hash) {
             System.out.print(x + " ");
         }*/
     }

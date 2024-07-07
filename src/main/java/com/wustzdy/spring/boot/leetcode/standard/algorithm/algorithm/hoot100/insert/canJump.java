@@ -16,7 +16,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.in
  */
 public class canJump {
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 3, 1, 1, 4};
+//        int[] nums = new int[]{2, 3, 1, 1, 4};
+        int[] nums = new int[]{3,2, 1, 0, 4};
         boolean result = canJump(nums);
         System.out.print("result:" + result);
 

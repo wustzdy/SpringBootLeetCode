@@ -60,6 +60,7 @@ public class subarraySum {
 
     //standard
     public static int subarraySum3(int[] nums, int k) {
+        //1 2 3
         // 前缀和数组
         int length = nums.length;
         int[] preSum = new int[length + 1];

@@ -11,6 +11,11 @@ public class test_005_longestPalindrome {
         String resultStr = longestPalindrome("abcdedcb");
         System.out.println("resultStr: " + resultStr);
 
+        boolean validPalindrome = validPalindrome("aba", 0, 2);
+        System.out.println("validPalindrome: " + validPalindrome);
+
+        String resultStr1 = longestPalindrome1("abcdedcb");
+        System.out.println("resultStr1: " + resultStr1);
     }
 
     public static String longestPalindrome(String s) {
@@ -35,5 +40,75 @@ public class test_005_longestPalindrome {
             j++;
         }
         return j - i - 1;
+    }
+
+
+    private static String longestPalindrome1(String str) {
+        int len = str.length();
+        if (len < 2) {
+            return str;
+        }
+        int maxLen = 1;
+        int begin = 0;
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (j - i + 1 > maxLen && validPalindrome(str, i, j)) {
+                    maxLen = j - i + 1;
+                    begin = i;
+                }
+            }
+        }
+        return str.substring(begin, begin + maxLen);
+    }
+
+    /*
+     *验证是否为回文字串
+     */
+    public static boolean validPalindrome(String str, int left, int right) {
+
+        //aba
+        char[] chars = str.toCharArray();
+        while (left < right) {
+            if (chars[left] != chars[right]) {
+                return false;
+            } else {
+                left++;
+                right--;
+            }
+        }
+        return true;
+    }
+
+    public String longestPalindrome11(String s) {
+        int len = s.length();
+        if (len < 2) {
+            return s;
+        }
+
+        int maxLen = 1;
+        String res = s.substring(0, 1);
+
+        // 枚举所有长度大于等于 2 的子串
+        for (int i = 0; i < len - 1; i++) {
+            for (int j = i + 1; j < len; j++) {
+                if (j - i + 1 > maxLen && valid(s, i, j)) {
+                    maxLen = j - i + 1;
+                    res = s.substring(i, j + 1);
+                }
+            }
+        }
+        return res;
+    }
+
+    private boolean valid(String s, int left, int right) {
+        // 验证子串 s[left, right] 是否为回文串
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 }

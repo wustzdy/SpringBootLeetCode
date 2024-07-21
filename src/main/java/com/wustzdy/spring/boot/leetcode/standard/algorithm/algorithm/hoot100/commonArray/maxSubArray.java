@@ -61,6 +61,7 @@ public class maxSubArray {
         return sum;
     }
 
+    //动态规划 standard 都行
     public int maxSubArray3(int[] nums) {
         int res = nums[0];
         for (int i = 1; i < nums.length; i++) {
@@ -70,18 +71,14 @@ public class maxSubArray {
         return res;
     }
 
-    //动态规划 standard
+    //动态规划 standard 都行
     public static int maxSubArray4(int[] nums) {
-        //-2,1,-3,4,-1,2,1,-5,4
-        int[] dp = new int[nums.length];
         int res = nums[0];
         for (int i = 1; i < nums.length; i++) {
-            if (dp[i - 1] <= 0) {
-                dp[i] = nums[i];
-            } else { //若前一个元素大于0，则将其加入到当前元素上
-                dp[i] = dp[i - 1] + nums[i];
+            if (nums[i-1] > 0) {
+                nums[i] = nums[i] + (nums[i-1]); // 实际上这里 nums[i] 保持不变，因为 nums[i] + (nums[i] - 1) = 2*nums[i] - 1
             }
-            res = Math.max(res, dp[i]);
+            res = Math.max(res, nums[i]);
         }
         return res;
     }

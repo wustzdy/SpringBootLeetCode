@@ -21,6 +21,8 @@ import java.util.List;
  */
 public class merge {
     public static void main(String[] args) {
+        int[][] intervals=new int[][]{{1,4},{4,5}};
+        int[][] merge =merge(intervals);
 
     }
     public static int[][] merge(int[][] intervals) {

@@ -1,6 +1,8 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.skill;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 //寻找重复数
 /*
@@ -40,6 +42,26 @@ public class findDuplicate {
                 return num;
             } else {
                 hmap.add(num);
+            }
+        }
+        return -1;
+    }
+
+    public static int findDuplicate1(int[] nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                map.put(num, map.get(num) + 1);
+            } else {
+                map.put(num, 1);
+            }
+        }
+        System.out.println(map);
+
+        for (int num : map.keySet()) {
+            int value = map.get(num);
+            if (value != 1) {
+                return num;
             }
         }
         return -1;

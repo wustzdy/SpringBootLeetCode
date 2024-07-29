@@ -5,13 +5,13 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.li
 //        输出：[2,1,4,3]
 public class swapPairs {
     public static void main(String[] args) {
-//        ListNode node5= new ListNode(5, null);
-        ListNode node4 = new ListNode(4, null);
+        ListNode node5= new ListNode(5, null);
+        ListNode node4 = new ListNode(4, node5);
         ListNode node3 = new ListNode(3, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode node1 = new ListNode(1, node2);
         System.out.println("链表1:" + node1);
-        ListNode node = swapPairs(node1);
+        ListNode node = swapPairs1(node1);
         System.out.println("node:" + node);
     }
 
@@ -27,6 +27,30 @@ public class swapPairs {
             p = a;
         }
         return dummy.next;
+    }
+    // 0 1 2 3 4 5
+    public static ListNode swapPairs1(ListNode head) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode temp = dummyHead;
+        while (temp.next != null && temp.next.next != null) {
+            ListNode node1 = temp.next;
+            ListNode node2 = temp.next.next;
+            temp.next = node2;
+            node1.next = node2.next;
+            node2.next = node1;
+            temp = node1;
+        }
+        return dummyHead.next;
+    }
+    public static ListNode swapPairs2(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        ListNode next = head.next;
+        head.next = swapPairs2(next.next);
+        next.next = head;
+        return next;
     }
 
     private static class ListNode {

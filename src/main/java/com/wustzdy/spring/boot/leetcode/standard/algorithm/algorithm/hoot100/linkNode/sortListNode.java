@@ -27,7 +27,7 @@ public class sortListNode {
         }
 
         // 将链表从fast与mid之间断开，切分成head和tmp两部分
-        ListNode tmp = slow.next;
+        ListNode tmp = slow.next;////链表第二部分的头节点
         slow.next = null;
 
         ListNode left = sortNode(head);

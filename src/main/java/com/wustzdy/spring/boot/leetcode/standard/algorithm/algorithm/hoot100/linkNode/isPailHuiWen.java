@@ -4,8 +4,8 @@ public class isPailHuiWen {
     public static void main(String[] args) {
         ListNode node6 = new ListNode(1, null);
         ListNode node5 = new ListNode(2, node6);
-        ListNode node4 = new ListNode(3, node5);
-        ListNode node3 = new ListNode(3, node4);
+        ListNode node4 = new ListNode(1, null);
+        ListNode node3 = new ListNode(2, node4);
         ListNode node2 = new ListNode(2, node3);
         ListNode oldLode = new ListNode(1, node2);
         System.out.println(oldLode);
@@ -15,13 +15,13 @@ public class isPailHuiWen {
         System.out.println(flag);*/
 
         ListNode mid = findMid(oldLode);
-        ListNode l1 = oldLode, l2 = mid;
-        l2 = reverseList(l2.next);
-        boolean flag = isSame(l1, l2);
-        System.out.println(flag);
-
-//        boolean flag = isPalindrome(oldLode);
+//        ListNode l1 = oldLode, l2 = mid;
+//        l2 = reverseList(l2.next);
+//        boolean flag = isSame(l1, l2);
 //        System.out.println(flag);
+
+        boolean flag1 = isPalindrome(oldLode);
+        System.out.println(flag1);
     }
 
     /**

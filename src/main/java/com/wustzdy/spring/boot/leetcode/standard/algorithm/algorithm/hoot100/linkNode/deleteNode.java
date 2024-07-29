@@ -14,7 +14,7 @@ public class deleteNode {
         ListNode node5 = new ListNode(5, null);
         ListNode node4 = new ListNode(4, node5);
         ListNode node3 = new ListNode(3, node4);
-        ListNode node2 = new ListNode(2, node3);
+        ListNode node2 = new ListNode(2, null);
         ListNode oldLode = new ListNode(1, node2);
         System.out.println(oldLode);
 
@@ -46,6 +46,21 @@ public class deleteNode {
         //具体情况可自己画一个链表长度为 3 的图来模拟代码来理解
         slowIndex.next = slowIndex.next.next;
         return dummyNode.next;
+    }
+
+    public static ListNode removeNthFromEnd1(ListNode head, int n) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummy = head;
+        ListNode fast = head;
+        ListNode slow = head;
+        for (int i = 0; i < n; i++) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        slow.next = slow.next.next;
+        return dummy;
     }
 
     private static class ListNode {

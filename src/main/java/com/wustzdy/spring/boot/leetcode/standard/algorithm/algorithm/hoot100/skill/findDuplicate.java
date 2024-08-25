@@ -36,7 +36,7 @@ public class findDuplicate {
     }
 
     public static int findDuplicate(int[] nums) {
-        Set<Integer> hmap = new HashSet<>();
+        Set<Integer> hmap = new HashSet<>();// 无序不重复
         for (int num : nums) {
             if (hmap.contains(num)) {
                 return num;

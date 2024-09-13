@@ -15,7 +15,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.dy
  * 输入：cost = [10, 15, 20]
    输出：15
    解释：最低花费是从 cost[1] 开始，然后走两步即可到阶梯顶，一共花费 15 。
-
+           0  2  2 3 4 5  6 7 8  9
     输入： [1,100,1,1,1,90,1,1,80,1]
     返回值：6
     说明：

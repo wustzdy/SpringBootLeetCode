@@ -15,7 +15,7 @@ import java.util.Arrays;
 */
 public class numSquares {
     public static void main(String[] args) {
-        int result = numSquares2(4);
+        int result = numSquares3(12);
         System.out.print("result:" + result);
     }
 
@@ -50,6 +50,7 @@ public class numSquares {
     }
 
     public static int numSquares2(int n) {
+        //12
         int[] dp = new int[n + 1];
         Arrays.fill(dp, 10);
         dp[0] = 0;

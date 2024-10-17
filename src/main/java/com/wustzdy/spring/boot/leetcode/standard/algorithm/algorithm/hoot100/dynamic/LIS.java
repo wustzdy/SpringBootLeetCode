@@ -18,6 +18,8 @@ public class LIS {
     //new standard
     //https://www.bilibili.com/video/BV137411B7BN/?spm_id_from=333.337.search-card.all.click
     public static int lengthOfLIS11(int[] nums) {
+        //len=7
+        // 0  1  2  3  4  5 6
         // 6  3  1  5  2  3 7
         // 1  1  1  1  1  1 1
         //上升子序列为 1 2 3 7 ,

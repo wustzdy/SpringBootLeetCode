@@ -32,8 +32,8 @@ public class findLengthOfLCIS {
             if (nums[i + 1] > nums[i]) {
                 dp[i + 1] = dp[i] + 1;
             }
-            res = res > dp[i + 1] ? res : dp[i + 1];
         }
+        res = Arrays.stream(dp).max().getAsInt();
         return res;
     }
 }

@@ -57,12 +57,13 @@ public class coinChange {
     }
     //https://www.bilibili.com/video/BV1e64y1P7MQ/?spm_id_from=333.337.search-card.all.click&vd_source=5363405f0e14a0e8f06bcae41548f41e
     public static int coinChange1(int[] coins, int amount) {
-        // 创建一个数组来存储从0到目标金额的最少硬币数，初始值设置为目标金额加1（表示无法凑成）。
+        //coins: 1 2 5
+        //amount: 11
+        //其中dp[i]表示凑成金额i所需的最少硬币个数
         int[] dp = new int[amount + 1];
         // 初始化数组的所有元素
         Arrays.fill(dp, amount + 1);
-        // 金额为0时不需要任何硬币
-        dp[0] = 0;
+        dp[0] = 0;// 金额0需要0枚硬币
         // 遍历从1到目标金额的每个金额
         for (int i = 1; i <= amount; i++) {
             // 遍历每个可用的硬币面额。
@@ -70,13 +71,32 @@ public class coinChange {
                 // 如果当前金额大于等于硬币面额，尝试更新当前金额的最少硬币数。
                 if (i >= coin) {
                     // 取当前金额最少硬币数和当前金额减去硬币面额的最少硬币数加1的最小值。
-                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+                    dp[i] = Math.min(dp[i], dp[i - coin] + 1);//'i-coin'表示从总金额中减去当前硬币面额后的剩余金额。
                 }
             }
         }
 
-        // 如果最终目标金额的最少硬币数仍为初始值（无法凑成目标金额），返回-1，否则返回最少硬币数。
-        return dp[amount] == amount + 1 ? -1 : dp[amount];
+        // 修正结果，如果amount无法凑成（即为极大值），返回-1
+        return dp[amount] <= amount ? dp[amount] : -1;
+    }
+    //https://leetcode.cn/problems/coin-change/solutions/2695028/javapython3cdong-tai-gui-hua-chai-fen-li-cdbp/?envType=study-plan-v2&envId=top-100-liked
+    public static int coinChange222(int[] coins, int amount) {
+        //coins: 1 2 5
+        //amount: 11
+        int[] dp = new int[amount + 1];    // dp[i]表示凑成金额i所需的最少硬币个数，初始都为极大值表示不可凑
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;      // 金额0需要0枚硬币
+        // 枚举每一个金额
+        for(int a = 1; a <= amount; a++){
+            // 枚举每一种硬币
+            for(int c: coins){
+                // 假设使用了硬币c，那么最少硬币数就由a-c转移来
+                if(a - c < 0)
+                    continue;
+                dp[a] = Math.min(dp[a], dp[a - c] + 1);
+            }
+        }
+        return dp[amount] <= amount ? dp[amount] : -1; // 修正结果，如果amount无法凑成（即为极大值），返回-1
     }
     public static int coinChange2(int[] coins, int amount) {//125
         //dp[j]：凑足总额为j所需钱币的最少个数为dp[j]

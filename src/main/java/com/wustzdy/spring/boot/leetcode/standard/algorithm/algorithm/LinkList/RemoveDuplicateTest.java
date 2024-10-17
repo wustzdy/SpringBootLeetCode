@@ -1,6 +1,5 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.LinkList;
 
-import static jdk.nashorn.internal.objects.Global.print;
 
 //26. 删除排序数组中的重复项
 // ava双指针

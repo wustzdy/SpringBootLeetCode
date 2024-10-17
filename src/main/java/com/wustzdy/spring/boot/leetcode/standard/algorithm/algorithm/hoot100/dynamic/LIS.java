@@ -10,80 +10,81 @@ import java.util.Arrays;
 public class LIS {
     public static void main(String[] args) {
 //        int[] array = new int[]{6, 3, 1, 5, 2, 3, 7};
-        int[] array = new int[]{10, 9, 2, 5, 3, 7, 101};
-        int lis = lengthOfLIS2s(array);
+//        int[] array = new int[]{10, 9, 2, 5, 3, 7, 101};
+//        int[] array = new int[]{10, 1, 9, 5};
+        int[] array = new int[]{1, 5, 3, 4,8};
+        int lis = lengthOfLIS_new(array);
         System.out.println("lis:" + lis);
 
     }
-
-    public static int LIS(int[] arr) {
-        //6, 3, 1, 5, 2, 3, 7
-        //特殊情况考虑
-        int len = arr.length;
-        if (arr == null || len == 0) {
+    //new standard
+    //https://www.bilibili.com/video/BV137411B7BN/?spm_id_from=333.337.search-card.all.click
+    public static int lengthOfLIS11(int[] nums) {
+        //len=7
+        //数组下标：   0  1  2  3  4
+        //原始数组num: 1, 5, 3, 4, 8
+        //初始化dp[i]: 1  1  1  1  1
+        //最终dp[i]:   1  2  2  3  4
+        //上升子序列为   1 3 4 8
+        //故长度为4
+        int len = nums.length;
+        if (len == 0) {
             return 0;
         }
-
-        //dp[i]:表示arr以i为结尾的最长上升子序列的个数
-        //很明显dp初始的值是1，在计算过程中顺便记录最大值的情况
-        //j的遍历是：i之前的所有以j为结尾的最长上升子序列的个数 也就是当前的数值arr[i] > arr[j],
-        // 那么是从arr[j]过来呢还是直接从arr[i]开始呢
         int[] dp = new int[len];
+        int res = 0;
         Arrays.fill(dp, 1);
-        int max = 1;
-        for (int i = 1; i < len; i++) {
+        for (int i = 0; i < len; i++) {
             for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j]) {
-                    dp[i] = Math.max(dp[j] + 1, dp[i]);
-                    max = Math.max(max, dp[i]);
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
+                }
+            }
+            res = Math.max(res, dp[i]);
+        }
+        return res;
+
+    }
+    public static int lengthOfLIS_new(int[] nums) {
+        //len=7
+        //数组下标：   0  1  2  3  4
+        //原始数组num: 1, 5, 3, 4, 8
+        //初始化dp[i]: 1  1  1  1  1
+        //最终dp[i]:   1  2  2  3  4
+        //上升子序列为   1 3 4 8 ,
+        //故长度为4
+        int len = nums.length;
+        if (len == 0) {
+            return 0;
+        }
+        int[] dp = new int[len];
+        int res = 0;
+        Arrays.fill(dp, 1);
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < i; j++) {
+                if (nums[j] < nums[i]) {
+                    dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
         }
+        //dp[i]=1  2  2  3  4,//求数组中最大值就可以
+        res = Arrays.stream(dp).max().getAsInt();
+        return res;
+    }
+    // 定义一个方法来找到数组中的最大元素
+    public static int findMax(int[] arr) {
+        // 初始化最大值为数组的第一个元素
+        int max = arr[0];
+
+        // 遍历数组，从第二个元素开始比较
+        for (int i = 1; i < arr.length; i++) {
+            // 如果当前元素大于max，更新max
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+
+        // 返回最大值
         return max;
-    }
-
-    public int lengthOfLIS(int[] arr) {
-        int len = arr.length;
-        if (arr == null || len == 0) {
-            return 0;
-        }
-        int[] dp = new int[len];
-        Arrays.fill(dp, 1);
-        dp[0] = 1;
-        for (int i = 1; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-            }
-        }
-        int result = 1;
-        for (int i = 1; i < len; i++) {
-            result = Math.max(result, dp[i]);
-        }
-        return result;
-    }
-
-    //https://leetcode.cn/problems/longest-increasing-subsequence/solutions/147667/zui-chang-shang-sheng-zi-xu-lie-by-leetcode-soluti/?envType=study-plan-v2&envId=top-100-liked
-    public static int lengthOfLIS2s(int[] arr) {
-        //10, 9, 2, 5, 3, 7, 101
-        // 1  1  1  1  1  1   1
-        int len = arr.length;
-        if (arr == null || len == 0) {
-            return 0;
-        }
-        int[] dp = new int[len];
-        Arrays.fill(dp, 1);
-        dp[0] = 1;
-        int result = 1;
-        for (int i = 1; i < len; i++) {
-            for (int j = 0; j < i; j++) {
-                if (arr[i] > arr[j]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-                result = Math.max(result, dp[i]);
-            }
-        }
-        return result;
     }
 }

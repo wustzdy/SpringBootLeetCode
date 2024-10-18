@@ -55,6 +55,7 @@ public class coinChange {
         }
         return f[amount] == Integer.MAX_VALUE ? -1 : f[amount];
     }
+
     //https://www.bilibili.com/video/BV1e64y1P7MQ/?spm_id_from=333.337.search-card.all.click&vd_source=5363405f0e14a0e8f06bcae41548f41e
     public static int coinChange1(int[] coins, int amount) {
         //coins: 1 2 5
@@ -65,7 +66,7 @@ public class coinChange {
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;// 金额0需要0枚硬币
         // 遍历从1到目标金额的每个金额
-        for (int i = 1; i <= amount; i++) {
+        for (int i = 1; i < amount + 1; i++) {
             // 遍历每个可用的硬币面额。
             for (int coin : coins) {
                 // 如果当前金额大于等于硬币面额，尝试更新当前金额的最少硬币数。
@@ -79,6 +80,7 @@ public class coinChange {
         // 修正结果，如果amount无法凑成（即为极大值），返回-1
         return dp[amount] <= amount ? dp[amount] : -1;
     }
+
     //https://leetcode.cn/problems/coin-change/solutions/2695028/javapython3cdong-tai-gui-hua-chai-fen-li-cdbp/?envType=study-plan-v2&envId=top-100-liked
     public static int coinChange222(int[] coins, int amount) {
         //coins: 1 2 5
@@ -87,17 +89,18 @@ public class coinChange {
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;      // 金额0需要0枚硬币
         // 枚举每一个金额
-        for(int a = 1; a <= amount; a++){
+        for (int a = 1; a <= amount; a++) {
             // 枚举每一种硬币
-            for(int c: coins){
+            for (int c : coins) {
                 // 假设使用了硬币c，那么最少硬币数就由a-c转移来
-                if(a - c < 0)
+                if (a - c < 0)
                     continue;
                 dp[a] = Math.min(dp[a], dp[a - c] + 1);
             }
         }
         return dp[amount] <= amount ? dp[amount] : -1; // 修正结果，如果amount无法凑成（即为极大值），返回-1
     }
+
     public static int coinChange2(int[] coins, int amount) {//125
         //dp[j]：凑足总额为j所需钱币的最少个数为dp[j]
         int[] dp = new int[amount + 1];
@@ -117,17 +120,16 @@ public class coinChange {
 /**
  * 另一种实现
  * memo[i 有两种实现的方式，去两者的最小值
- *
+ * <p>
  * 包含当前的 coins[i]，那么剩余钱就是 i−coins[i]，这种操作要兑换的硬币数是memo[i−coins[j]]+1
- *
+ * <p>
  * 不包含，要兑换的硬币数是 memo[i]
- *
+ * <p>
  * Java
- *
- *
+ * <p>
+ * <p>
  * 作者：sugar
  * 链接：https://leetcode.cn/problems/coin-change/solutions/137661/javadi-gui-ji-yi-hua-sou-suo-dong-tai-gui-hua-by-s/
  * 来源：力扣（LeetCode）
  * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
- *
- * */
+ */

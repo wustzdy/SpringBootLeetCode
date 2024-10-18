@@ -97,6 +97,8 @@ public class climbStairs {
     }
 
     public static int jumpFloor(int number) {
+        //n=3
+        //dp[i]: 0 1 2 3
         int[] dp = new int[number+1];//如果不初始化dp[0]，那就存数组的时候从1开始
         if (number == 1) {  //如果数组下标从1开始，那么这里1的情况就要单独加进去
             return 1;

@@ -22,6 +22,8 @@ public class findLengthOfLCIS {
     }
     //https://www.bilibili.com/video/BV1bD4y1778v/?spm_id_from=333.788&vd_source=5363405f0e14a0e8f06bcae41548f41e
     public static int findLengthOfLCIS(int[] nums) {
+        //n=5
+        //0 1 2 3 4
         //1,3,5,4,7
         //1,2,3,1,2
         int[] dp = new int[nums.length];
@@ -31,6 +33,24 @@ public class findLengthOfLCIS {
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i + 1] > nums[i]) {
                 dp[i + 1] = dp[i] + 1;
+            }
+        }
+        res = Arrays.stream(dp).max().getAsInt();
+        return res;
+    }
+    //standard
+    public static int findLengthOfLCIS1(int[] nums) {
+        //n=5
+        //0 1 2 3 4
+        //1,3,5,4,7
+        //1,2,3,1,2
+        int[] dp = new int[nums.length];
+        Arrays.fill(dp,1);
+
+        int res = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] > nums[i-1]) {
+                dp[i] = dp[i-1] + 1;
             }
         }
         res = Arrays.stream(dp).max().getAsInt();

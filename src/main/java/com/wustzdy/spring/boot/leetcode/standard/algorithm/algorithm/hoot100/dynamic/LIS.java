@@ -46,7 +46,7 @@ public class LIS {
 
     }
     public static int lengthOfLIS_new(int[] nums) {
-        //len=7
+        //len=5
         //数组下标：   0  1  2  3  4
         //原始数组num: 1, 5, 3, 4, 8
         //初始化dp[i]: 1  1  1  1  1

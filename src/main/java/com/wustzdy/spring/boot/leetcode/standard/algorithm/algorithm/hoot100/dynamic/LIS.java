@@ -46,10 +46,10 @@ public class LIS {
 
     }
     public static int lengthOfLIS_new(int[] nums) {
+        //初始化dp[i]: 1  1  1  1  1
         //len=5
         //数组下标：   0  1  2  3  4
         //原始数组num: 1, 5, 3, 4, 8
-        //初始化dp[i]: 1  1  1  1  1
         //最终dp[i]:   1  2  2  3  4
         //上升子序列为   1 3 4 8 ,
         //故长度为4

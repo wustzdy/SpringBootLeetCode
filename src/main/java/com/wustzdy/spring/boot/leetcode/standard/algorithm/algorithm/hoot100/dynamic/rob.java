@@ -27,7 +27,8 @@ public class rob {
     }
 
     public static int rob(int[] nums) {
-        //          0, 1, 2, 3, 4
+        // 长度：n=5
+        // 下标      0, 1, 2, 3, 4
         //  num[i]= 2, 7, 9, 3, 1
         //  dp [i]= 2, 7, 11,11,12
         if (nums == null || nums.length == 0) {

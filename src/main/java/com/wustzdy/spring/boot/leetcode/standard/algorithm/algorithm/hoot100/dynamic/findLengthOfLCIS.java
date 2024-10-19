@@ -41,9 +41,10 @@ public class findLengthOfLCIS {
     //standard
     public static int findLengthOfLCIS1(int[] nums) {
         //n=5
-        //0 1 2 3 4
-        //1,3,5,4,7
-        //1,2,3,1,2
+        //下标：    0 1 2 3 4
+        //nums[i]: 1,3,5,4,7
+        //dp[i]:   1,2,3,1,2
+        //求连续最长连续递增序列是 [1,3,5]长度，也就是求dp[i]中最大的数字
         int[] dp = new int[nums.length];
         Arrays.fill(dp,1);
 
@@ -53,7 +54,7 @@ public class findLengthOfLCIS {
                 dp[i] = dp[i-1] + 1;
             }
         }
-        res = Arrays.stream(dp).max().getAsInt();
+        res = Arrays.stream(dp).max().getAsInt();//也就是求dp[i]中最大的数字
         return res;
     }
 }

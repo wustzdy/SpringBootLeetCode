@@ -74,7 +74,7 @@ public class minCostClimbingStairs {
     public static int minCostClimbingStairs(int[] cost) {
         //dp 到达第i台阶所花费的最少体力为dp[i]。如果要向上跳，那么需要加上本身的花费const
         //int[]//2 5  20
-               //0 1  2  3
+        //下标：//0 1  2  3
         //dp[] //0 0  2  5
         int len = cost.length;//
         int[] dp = new int[len + 1];

@@ -89,7 +89,7 @@ public class coinChange {
         Arrays.fill(dp, amount + 1);
         dp[0] = 0;      // 金额0需要0枚硬币
         // 枚举每一个金额
-        for (int a = 1; a <= amount; a++) {
+        for (int a = 1; a < amount+1; a++) {
             // 枚举每一种硬币
             for (int c : coins) {
                 // 假设使用了硬币c，那么最少硬币数就由a-c转移来

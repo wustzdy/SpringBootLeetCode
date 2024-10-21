@@ -15,7 +15,7 @@ import java.util.Arrays;
 */
 public class numSquares {
     public static void main(String[] args) {
-        int result = numSquares3(12);
+        int result = numSquares3(11);
         System.out.print("result:" + result);
     }
 
@@ -54,7 +54,7 @@ public class numSquares {
         int[] dp = new int[n + 1];
         Arrays.fill(dp, 10);
         dp[0] = 0;
-        for (int i = 1; i < n+1; i++) {
+        for (int i = 1; i < n + 1; i++) {
             int j = 1;
             while (j * j <= i) {
                 dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
@@ -65,10 +65,13 @@ public class numSquares {
     }
 
     public static int numSquares3(int n) {
+        //dp[i] 表示i的完全平方和的最少数量
+        //下标：  0 1 2 3 4 5 6 7 8 9 10 11 12
+        //dp[i]= 0 1 2 3 1 2 3 4 2 1  2  3  3
         int[] dp = new int[n + 1];
         Arrays.fill(dp, 10);
         dp[0] = 0;
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i < n + 1; i++) {
             for (int j = 1; j * j <= i; j++) {
                 dp[i] = Math.min(dp[i], dp[i - j * j] + 1);
             }
@@ -76,3 +79,6 @@ public class numSquares {
         return dp[n];
     }
 }
+//dp[12]=dp[12-1*1]+1=dp[11]+1
+//dp[12]=dp[12-2*2]+1=dp[7]+1
+//dp[12]=dp[12-3*3]+1=dp[4]+1

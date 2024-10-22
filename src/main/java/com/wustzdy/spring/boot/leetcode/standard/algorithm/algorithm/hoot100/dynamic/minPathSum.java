@@ -40,6 +40,17 @@ public class minPathSum {
 //         *  1 3 1  |   1 4 5 | 1 4 5
 //         *  1 5 1  |   2     | 2 7 6
 //         *  4 2 1  |   6     | 6 8 7
+    /*
+    * i=0,也就是 如何 得到列 1 2 6----对应列
+    *    2=dp[1][0]=dp[0][0]+matrix[1][0]=1+1=2
+    *    6=dp[2][0]=dp[1][0]+matrix[2][0]=2+4=6
+    *
+    * j=0,也就是 如何 得到列 1 4 5----对应行
+    *    4=dp[0][1]=dp[0][0]+matrix[0][1]=1+3=4
+    *    5=dp[0][2]=dp[0][1]+matrix[0][2]=4+1=5
+    *
+    * dp[1][1]=min(dp[i-1][j],dp[i][j-1]+matrix[1][1];
+    * */
     public static int minPathSum1(int[][] matrix) {
         // write code here
         int m = matrix.length; // matrix的行 m=3

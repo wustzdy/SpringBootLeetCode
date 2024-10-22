@@ -61,6 +61,12 @@ public class coinChange {
         //coins: 1 2 5
         //amount: 11
         //其中dp[i]表示凑成金额i所需的最少硬币个数
+
+        /*这里的 dp[i - coin] + 1 的含义是：
+        dp[i - coin]：凑成金额 i - coin 所需的最少硬币数。
+        +1：因为我们使用了一个面值为 coin 的硬币，所以需要加上这个硬币。
+        */
+
         int[] dp = new int[amount + 1];
         // 初始化数组的所有元素
         Arrays.fill(dp, amount + 1);
@@ -76,7 +82,6 @@ public class coinChange {
                 }
             }
         }
-
         // 修正结果，如果amount无法凑成（即为极大值），返回-1
         return dp[amount] <= amount ? dp[amount] : -1;
     }
@@ -98,18 +103,32 @@ public class coinChange {
 
 
 /**
- * 另一种实现
- * memo[i 有两种实现的方式，去两者的最小值
- * <p>
- * 包含当前的 coins[i]，那么剩余钱就是 i−coins[i]，这种操作要兑换的硬币数是memo[i−coins[j]]+1
- * <p>
- * 不包含，要兑换的硬币数是 memo[i]
- * <p>
- * Java
- * <p>
- * <p>
- * 作者：sugar
- * 链接：https://leetcode.cn/problems/coin-change/solutions/137661/javadi-gui-ji-yi-hua-sou-suo-dong-tai-gui-hua-by-s/
- * 来源：力扣（LeetCode）
- * 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+ dp[i] = min(dp[i], dp[i - coin] + 1)
+ 我们逐步拆解这个公式：
+
+ i - coin： 这是当前金额 i 减去一个硬币面值 coin 后的剩余金额。
+ **dp[i - coin]：** 这是凑成剩余金额 i - coin` 所需的最少硬币数。
+ + 1： 这是因为我们使用了一个面值为 coin 的硬币，所以加上这枚硬币。
+
+ 使用 coin = 2：
+
+ i - coin = 11 - 2 = 9
+ dp[9] 是我们已经计算出的凑成金额 9 所需的最少硬币数。
+ dp[11] = min(dp[11], dp[9] + 1)
+ 这里的 +1 表示我们使用了一个面值为 2 的硬币。
+
  */
+/*
+* 各部分含义解析
+i - coin： 表示当前金额 i 减去一个硬币的值 coin，即剩下的金额。
+
+如果我们选择了这枚硬币 coin 来凑成金额 i，那么之前我们已经知道如何凑成金额 i - coin。
+dp[i - coin]： 这部分表示凑成 i - coin 所需的最少硬币数。
+
++ 1： 这一部分的意思是：
+
+我们在凑成金额 i 时，除了之前凑成 i - coin 所需的硬币外，我们还要再加上新选择的这枚面值为 coin 的硬币。
+这样总的硬币数就应当是 dp[i - coin]（凑成 i - coin 的硬币数）加上 1（当前使用的这枚硬币）。
+为什么要加 1
+加 1 的原因在于当我们选择某个硬币 coin 时，实际上是将这个新硬币加入到之前的凑成组合中。所以我们需要在已有的硬币计数上再加上 1，以反映我们所用的新硬币数量。
+* */

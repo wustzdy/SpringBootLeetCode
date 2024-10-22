@@ -15,7 +15,7 @@ import java.util.Arrays;
 */
 public class numSquares {
     public static void main(String[] args) {
-        int result = numSquares3(11);
+        int result = numSquares3(4);
         System.out.print("result:" + result);
     }
 

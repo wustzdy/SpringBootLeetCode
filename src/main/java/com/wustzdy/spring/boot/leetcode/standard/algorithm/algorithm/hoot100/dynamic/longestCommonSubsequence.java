@@ -7,7 +7,6 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.dy
 //解释：最长公共子序列是 "ace"，它的长度为 3。
 
 
-
 // 5，BM65 最长公共子序列-不要求连续(二)-求字符串
 //给定两个字符串str1和str2，输出两个字符串的最长公共子序列。
 //如果最长公共子序列为空，则返回"-1"。目前给出的数据，仅仅会存在一个最长的公共子序列
@@ -26,16 +25,26 @@ public class longestCommonSubsequence {
 
     }
 
+    //https://programmercarl.com/1143.%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97.html#%E6%80%9D%E8%B7%AF
     public static int longestCommonSubsequence_length(String text1, String text2) {
-        // char[] char1 = text1.toCharArray();
-        // char[] char2 = text2.toCharArray();
-        // 可以在一開始的時候就先把text1, text2 轉成char[]，之後就不需要有這麼多爲了處理字串的調整
-        // 就可以和卡哥的code更一致
-
+        /**     00   a  c  e
+         *      0    0  0  0
+         * a    0    1  1  1
+         * b    0    1  1  1
+         * c    0    1  2  2
+         * d    0    1  2  2
+         * e    0    1  2  3
+         *
+         * 00 01 02 03
+         * 10 11 12 13
+         * 20 21 22 23
+         * 30 31 32 33
+         *
+         * */
         int[][] dp = new int[text1.length() + 1][text2.length() + 1]; // 先对dp数组做初始化操作
-        for (int i = 1; i <= text1.length(); i++) {
+        for (int i = 1; i < text1.length() +1; i++) {
             char char1 = text1.charAt(i - 1);
-            for (int j = 1; j <= text2.length(); j++) {
+            for (int j = 1; j < text2.length() + 1; j++) {
                 char char2 = text2.charAt(j - 1);
                 if (char1 == char2) { // 开始列出状态转移方程
                     dp[i][j] = dp[i - 1][j - 1] + 1;

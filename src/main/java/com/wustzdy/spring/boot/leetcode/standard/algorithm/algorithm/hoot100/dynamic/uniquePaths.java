@@ -14,7 +14,8 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.dy
         1. 向右 -> 向下 -> 向下
         2. 向下 -> 向下 -> 向右
         3. 向下 -> 向右 -> 向下
- */
+*///然后只要让 dp[0][1] = 1 或者 dp[1][0] = 1 就可以了。格子都是有 右 和 上两个格的和
+//这里要看一下递推公式dp[i][j] = dp[i - 1][j] + dp[i][j - 1]，dp[i][j]都是从其上方和左方推导而来，那么从左到右一层一层遍历就可以了。
 public class uniquePaths {
     public static void main(String[] args) {
         int total = uniquePathsFun(3, 2);

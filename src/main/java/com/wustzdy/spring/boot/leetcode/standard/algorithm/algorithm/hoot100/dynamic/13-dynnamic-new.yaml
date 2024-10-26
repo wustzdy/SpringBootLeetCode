@@ -24,8 +24,6 @@
 //    如果是走两步， 我们需要通过 f(n-2)种方式到达第 n - 2 层
 //    所以综上有 f(n) = f(n-2) + f(n-1)
 
-import java.util.Arrays;
-
 public static int jumpFloor(int number) {
     //n=3
     //dp[i]: 0 1 2 3

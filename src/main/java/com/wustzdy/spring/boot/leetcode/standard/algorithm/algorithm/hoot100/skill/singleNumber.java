@@ -17,7 +17,7 @@ import java.util.Set;
 public class singleNumber {
     public static void main(String[] args) {
         int[] nums = new int[]{4, 1, 2, 1, 2};
-        int result = singleNumber2(nums);
+        int result = singleNumber1(nums);
         System.out.println("result:" + result);
 //        singleNumber1(nums);
 

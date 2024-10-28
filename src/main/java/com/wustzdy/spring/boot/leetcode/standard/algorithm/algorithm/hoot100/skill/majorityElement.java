@@ -14,9 +14,9 @@ import java.util.Map;
 */
 public class majorityElement {
     public static void main(String[] args) {
-        int[] nums = new int[]{2, 2, 1, 1, 1, 2, 2};
-//        int[] nums = new int[]{3,2,3};
-        int result = majorityElement3(nums);
+//        int[] nums = new int[]{2, 2, 1, 1, 1, 2, 2};
+        int[] nums = new int[]{3,2,3};
+        int result = majorityElement(nums);
         System.out.println("result:" + result);
 
     }
@@ -30,7 +30,7 @@ public class majorityElement {
                 map.put(num, 1);
             }
         }
-        System.out.println(map);
+        System.out.println(map);//{{3=2,2=1}}
 
         for (int num : map.keySet()) {
             int value = map.get(num);

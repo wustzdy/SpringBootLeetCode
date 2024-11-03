@@ -17,7 +17,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.ta
 public class maxProfit {
     public static void main(String[] args) {
         int[] prices = new int[]{7, 1, 5, 3, 6, 4};
-        int result = maxProfit(prices);
+        int result = maxProfit3(prices);
         System.out.println("result:" + result);
 
     }
@@ -51,13 +51,13 @@ public class maxProfit {
      * 每天利润     -6  4  5  -7  3  -2
      * 贪心 每天只收集正利润： 4+5+3
      */
-    public int maxProfit3(int[] prices) {
+    public static int maxProfit3(int[] prices) {
         int result = 0;
         for (int i = 1; i < prices.length; i++) {
             if (prices[i] - prices[i - 1] > 0) {
                 result += prices[i] - prices[i - 1];
             }
         }
-        return result;
+        return result;//7
     }
 }

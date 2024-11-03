@@ -12,13 +12,13 @@ import java.util.Arrays;
 public class nextPermutation {
     public static void main(String[] args) {
         int[] array = new int[]{1, 2, 4, 3};
-        nextPermutation2(array);
+        nextPermutation(array);
         for (Integer i : array) {
             System.out.print(" " + i);
         }
     }
 
-    public static void nextPermutation(int[] nums) {
+    public static void nextPermutation(int[] nums) {//1, 2, 4, 3
         int i = nums.length - 2;
         while (i >= 0 && nums[i] >= nums[i + 1]) {
             i--;
@@ -47,7 +47,8 @@ public class nextPermutation {
             right--;
         }
     }
-
+//https://leetcode.cn/problems/next-permutation/solutions/1280080/ren-zhe-suan-fa-quan-wang-zui-qing-xi-yi-s3rr/?envType=study-plan-v2&envId=top-100-liked
+//双指针
     public static void nextPermutation2(int[] nums) {
         for (int i = nums.length - 1; i >= 0; i--) {
             for (int j = nums.length - 1; j > i; j--) {

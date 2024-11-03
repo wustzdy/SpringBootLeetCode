@@ -46,3 +46,5 @@ public class SharesSolution {
         return maxprofit;
     }
 }
+//当前价格小于最小谷值时修改minprice
+//当前获得的利润大于最大的利润时需改maxprofit

@@ -17,7 +17,7 @@ package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.ta
 public class canJump {
     public static void main(String[] args) {
 //        int[] nums = new int[]{2, 3, 1, 1, 4};
-        int[] nums = new int[]{3,2, 1, 0, 4};
+        int[] nums = new int[]{3, 2, 1, 0, 4};
         boolean result = canJump(nums);
         System.out.print("result:" + result);
 
@@ -37,5 +37,30 @@ public class canJump {
             }
         }
         return false;
+    }
+
+    //比较容易懂
+    //https://www.bilibili.com/video/BV1KU4y1f76S/?spm_id_from=333.337.search-card.all.click&vd_source=5363405f0e14a0e8f06bcae41548f41e
+    /*
+    *nums[i] 3 2 1 0 4    0:  0+3 =3
+    *下标：   0 1 2 3 4    1:  1+2 =3
+    *                     2:  2+1 =3
+    *                     3:  3+0 =3
+    *                     4:  >3
+    *  3就是最大覆盖范围
+    * */
+    public static boolean canJump1(int[] nums) {
+        if (nums.length == 1) {
+            return true;
+        }
+        int coverRange = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (i > coverRange) { //下标大于最大覆盖范围
+                return false;
+            } else {
+                coverRange = Math.max(coverRange, i + nums[i]);
+            }
+        }
+        return true;
     }
 }

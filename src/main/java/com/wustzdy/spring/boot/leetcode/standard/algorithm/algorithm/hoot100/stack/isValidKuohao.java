@@ -28,7 +28,7 @@ import java.util.Stack;
 public class isValidKuohao {
     public static void main(String[] args) {
         String str = "()[]{}";
-        boolean valid = isValid1(str);
+        boolean valid = isValid(str);
         System.out.println(valid);
     }
 
@@ -52,7 +52,7 @@ public class isValidKuohao {
 
     public static boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        for (Character c : s.toCharArray()) {
+        for (char c : s.toCharArray()) {
             if (c == '(') {
                 stack.push(')');
             } else if (c == '[') {

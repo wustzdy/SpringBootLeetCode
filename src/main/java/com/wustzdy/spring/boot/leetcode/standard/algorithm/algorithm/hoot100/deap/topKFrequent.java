@@ -1,9 +1,6 @@
 package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.deap;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -64,12 +61,14 @@ public class topKFrequent {
     public static int[] topKFrequent1(int[] nums, int k) {
         //// 统计每个数字出现的次数
         Map<Integer, Integer> frequencyMap = new HashMap<>();
+        // 如果哈希表中没有这个元素就赋值为1
+        // 如果哈希表有这个元素就把数值加1
         for (int num : nums) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
         }
         // 1=3 2=2 3=1
         // // 使用最小堆来保存频率前k高的元素（使用自定义比较器）
-        PriorityQueue<Integer> minHeap = new PriorityQueue<>((a, b) -> frequencyMap.get(a) - frequencyMap.get(b));
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>(Comparator.comparingInt(frequencyMap::get));
         // 遍历HashMap，将元素加入最小堆中
         for (int num : frequencyMap.keySet()) {
             minHeap.add(num);

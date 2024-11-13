@@ -21,18 +21,21 @@ public class jump {
 
     }
 
+    //https://www.bilibili.com/video/BV1i5411o7wi/?spm_id_from=333.337.search-card.all.click&vd_source=5363405f0e14a0e8f06bcae41548f41e
+    //https://leetcode.cn/problems/jump-game-ii/solutions/9347/xiang-xi-tong-su-de-si-lu-fen-xi-duo-jie-fa-by-10/?envType=study-plan-v2&envId=top-100-liked
     public static int jump(int[] nums) {
-        int end = 0;
-        int maxPosition = 0;
-        int steps = 0;
+        //2, 3, 1, 1, 4
+        int end = 0;//上次可跳跃的达到右边界
+        int maxPos = 0;//当前能走到的最远位置
+        int ans = 0;//结果变量
         for(int i = 0; i < nums.length - 1; i++){
             //找能跳的最远的
-            maxPosition = Math.max(maxPosition, nums[i] + i);
+            maxPos = Math.max(maxPos, nums[i] + i);
             if( i == end){ //遇到边界，就更新边界，并且步数加一
-                end = maxPosition;
-                steps++;
+                end = maxPos;
+                ans++;
             }
         }
-        return steps;
+        return ans;
     }
 }

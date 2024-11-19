@@ -72,13 +72,14 @@ public class search {
                 return mid;
             }
 
-            if (nums[left] <= nums[mid]) {
+            ////[left, mid]是有序数组，[mid+1, right]是旋转数组
+            if (nums[left] <= nums[mid]) {//第一个递增区间
                 if (nums[left] <= target && target < nums[mid]) {
                     right = mid - 1;
                 } else {
                     left = mid + 1;
                 }
-            } else {
+            } else {//[left, mid-1]是旋转数组，[mid, right]是有序数组 //第二个递增区间
                 if (nums[mid] < target && target <= nums[right]) {
                     left = mid + 1;
                 } else {

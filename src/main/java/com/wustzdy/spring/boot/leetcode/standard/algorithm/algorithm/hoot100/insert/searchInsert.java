@@ -29,6 +29,17 @@ public class searchInsert {
 
     }
 
+    /**
+     * 初始化指针：设置两个指针 left 和 right 分别指向数组的开始和结束位置。
+     * 二分搜索：计算中点 mid 并比较 nums[mid] 和 target：
+     * <p>
+     * 如果 nums[mid] 等于 target，直接返回 mid 作为答案。
+     * 如果 nums[mid] 大于 target，调整 right 指针到 mid - 1，因为目标值在左半边。
+     * 如果 nums[mid] 小于 target，调整 left 指针到 mid + 1，因为目标值在右半边。
+     * <p>
+     * 找到插入位置：如果循环结束还没有找到目标值，left 指针将指向应该插入目标值的位置。
+     * 因为循环终止时，left 是第一个大于 target 的位置的索引。
+     */
     public static int searchInsert(int[] nums, int target) {
         //         0  1  2  3
         //nums[i]: 1, 3, 5, 6
@@ -38,6 +49,7 @@ public class searchInsert {
         int mid = 0;
         while (left <= right) {
             mid = (left + right) / 2;
+//            mid = left +(right-left)/2;//一回事
             if (nums[mid] == target) {
                 return mid;
             } else if (nums[mid] > target) {

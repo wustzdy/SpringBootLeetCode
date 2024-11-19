@@ -33,3 +33,16 @@ public class searchMatrix {
         return false;
     }
 }
+
+/*
+* 2）找出mid，该索引为 mid =（left + right）/ 2，但是这样写有可能溢出，所以我们需要改进一下写成
+
+mid = left +（right - left）/ 2 或者 left + ((right - left ) >> 1) 两者作用是一样的，都是为了找到两指针的中
+
+间索引，使用位运算的速度更快。那么此时的 mid = 0 + (8-0) / 2 = 4
+
+作者：袁记菜馆
+链接：https://leetcode.cn/problems/search-a-2d-matrix/solutions/536366/yi-wen-dai-ni-gao-ding-duo-ge-er-fen-cha-2hl9/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+* */

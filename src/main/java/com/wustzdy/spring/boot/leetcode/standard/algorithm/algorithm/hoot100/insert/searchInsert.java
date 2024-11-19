@@ -30,6 +30,9 @@ public class searchInsert {
     }
 
     public static int searchInsert(int[] nums, int target) {
+        //         0  1  2  3
+        //nums[i]: 1, 3, 5, 6
+        // target =7
         int left = 0;
         int right = nums.length - 1;
         int mid = 0;

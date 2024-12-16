@@ -1,4 +1,4 @@
-package com.wustzdy.spring.boot.leetcode.standard.algorithm.sort;
+package com.wustzdy.spring.boot.leetcode.standard.algorithm.algorithm.hoot100.sort;
 
 //快速排序
 //https://blog.csdn.net/nrsc272420199/article/details/82587933
